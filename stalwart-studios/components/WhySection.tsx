@@ -4,52 +4,99 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import type { WhySectionData } from "@/lib/sanity.fetch";
 
-// SVG icons matching the style in the reference (thin outline, gold tint)
+// SVG icons redesigned to match the glowing, layered geometric style.
 const PILLAR_ICONS: Record<string, React.ReactNode> = {
   Zap: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <defs>
+        <filter id="glowZap" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="1.2" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+      </defs>
+      <path d="M12.8 2.8 4.6 13.4h6.2l-1.2 7.8 8.2-10.6h-6.1l1.1-7.8Z" stroke="rgba(244,176,72,0.95)" strokeWidth="1.5" strokeLinejoin="round" filter="url(#glowZap)"/>
     </svg>
   ),
   Heart: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <defs>
+        <filter id="glowHeart" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="1.2" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+      </defs>
+      <path d="M12 20.3 5.4 13.7a4.8 4.8 0 0 1 0-6.8 4.8 4.8 0 0 1 6.8 0l.8.8.8-.8a4.8 4.8 0 1 1 6.8 6.8L12 20.3Z" stroke="rgba(244,176,72,0.95)" strokeWidth="1.5" strokeLinejoin="round" filter="url(#glowHeart)"/>
     </svg>
   ),
   Shield: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <defs>
+        <filter id="glowShield" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="1.2" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+      </defs>
+      <path d="M12 21s7-3.6 7-9V6.2L12 3 5 6.2V12c0 5.4 7 9 7 9Z" stroke="rgba(244,176,72,0.95)" strokeWidth="1.5" strokeLinejoin="round" filter="url(#glowShield)"/>
     </svg>
   ),
   Coffee: (
-    // Use a code bracket instead — matches the "Indie & Independent" pillar in the design
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="16 18 22 12 16 6"/>
-      <polyline points="8 6 2 12 8 18"/>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <defs>
+        <filter id="glowCoffee" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="1.2" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+      </defs>
+      <polyline points="16 18 21 12 16 6" stroke="rgba(244,176,72,0.95)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" filter="url(#glowCoffee)"/>
+      <polyline points="8 6 3 12 8 18" stroke="rgba(244,176,72,0.95)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" filter="url(#glowCoffee)"/>
     </svg>
   ),
   Performance: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/>
-      <path d="M12 6v6l4 2"/>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <defs>
+        <filter id="glowPerf" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="1.2" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+      </defs>
+      <circle cx="12" cy="12" r="9" stroke="rgba(244,176,72,0.95)" strokeWidth="1.5" filter="url(#glowPerf)"/>
+      <path d="M12 7.6v4.6l3.4 2.1" stroke="rgba(244,176,72,0.95)" strokeWidth="1.5" strokeLinecap="round" filter="url(#glowPerf)"/>
     </svg>
   ),
   User: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-      <circle cx="12" cy="7" r="4"/>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <defs>
+        <filter id="glowUser" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="1.2" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+      </defs>
+      <path d="M19.8 20.4v-1.6a4.7 4.7 0 0 0-4.7-4.7H8.9a4.7 4.7 0 0 0-4.7 4.7v1.6" stroke="rgba(244,176,72,0.95)" strokeWidth="1.5" strokeLinecap="round" filter="url(#glowUser)"/>
+      <circle cx="12" cy="8" r="3.6" stroke="rgba(244,176,72,0.95)" strokeWidth="1.5" filter="url(#glowUser)"/>
     </svg>
   ),
   Lock: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <defs>
+        <filter id="glowLock" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="1.2" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+      </defs>
+      <rect x="4.2" y="10.8" width="15.6" height="10.6" rx="2.2" stroke="rgba(244,176,72,0.95)" strokeWidth="1.5" filter="url(#glowLock)"/>
+      <path d="M8 10.8V8a4 4 0 1 1 8 0v2.8" stroke="rgba(244,176,72,0.95)" strokeWidth="1.5" strokeLinecap="round" filter="url(#glowLock)"/>
     </svg>
   ),
   Code: (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="16 18 22 12 16 6"/>
-      <polyline points="8 6 2 12 8 18"/>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <defs>
+        <filter id="glowCode" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="1.2" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+      </defs>
+      <polyline points="16 18 21 12 16 6" stroke="rgba(244,176,72,0.95)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" filter="url(#glowCode)"/>
+      <polyline points="8 6 3 12 8 18" stroke="rgba(244,176,72,0.95)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" filter="url(#glowCode)"/>
     </svg>
   ),
 };
@@ -75,10 +122,29 @@ export function WhySection({ data }: Props) {
   return (
     <section
       ref={ref}
-      style={{ background: "#111113", borderTop: "1px solid #1E1E22" }}
+      style={{ background: "var(--bg-surface)", borderTop: "1px solid var(--border-subtle)" }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#1E1E22]">
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          className="flex items-center gap-3 mb-3"
+        >
+          <span className="gold-line" />
+          <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-brand-secondary">
+            {d.sectionLabel}
+          </span>
+        </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.1 }}
+          className="font-fraunces font-semibold text-brand-primary mb-9 leading-[1.1] whitespace-pre-line max-w-[640px]"
+          style={{ fontSize: "clamp(1.65rem, 2.8vw, 2.35rem)" }}
+        >
+          {d.headline}
+        </motion.h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x border-brand-subtle">
           {d.pillars.map((p, i) => {
             const IconEl = PILLAR_ICONS[p.icon] ?? PILLAR_ICONS.Code;
             return (
@@ -90,8 +156,8 @@ export function WhySection({ data }: Props) {
                 className="px-6 py-8 first:pl-0 last:pr-0"
               >
                 <div className="pillar-icon mb-5">{IconEl}</div>
-                <h3 className="text-[15px] font-semibold text-[#EDE8E0] mb-2">{p.title}</h3>
-                <p className="text-[13px] text-[#8A8A94] leading-relaxed">{p.description}</p>
+                <h3 className="text-[15px] font-semibold text-brand-primary mb-2">{p.title}</h3>
+                <p className="text-[13px] text-brand-secondary leading-relaxed">{p.description}</p>
               </motion.div>
             );
           })}

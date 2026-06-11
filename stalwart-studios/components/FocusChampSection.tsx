@@ -12,21 +12,68 @@ const DEFAULT_FEATURES = [
 ];
 
 function FeatureIcon({ type }: { type: string }) {
+  const stroke = "rgba(244,176,72,0.95)";
+  const glow = "url(#iconGlow)";
+  const chip = "rgba(244,176,72,0.1)";
   if (type === "timer") return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F4C05F" strokeWidth="1.4" strokeLinecap="round">
-      <circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 3h6"/><path d="M12 3v2"/>
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+      <defs>
+        <filter id="iconGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="1.7" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <rect x="2.6" y="2.6" width="24.8" height="24.8" rx="8" fill={chip} stroke="rgba(244,176,72,0.45)" />
+      <circle cx="15" cy="16.4" r="6.4" stroke={stroke} strokeWidth="1.6" filter={glow}/>
+      <path d="M15 12.8v3.5l2.3 2.2" stroke={stroke} strokeWidth="1.6" strokeLinecap="round" filter={glow}/>
+      <path d="M12.2 8h5.6" stroke={stroke} strokeWidth="1.5" strokeLinecap="round" filter={glow}/>
+      <path d="M15 8v1.8" stroke={stroke} strokeWidth="1.5" strokeLinecap="round" filter={glow}/>
     </svg>
   );
   if (type === "flame") return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F4C05F" strokeWidth="1.4" strokeLinecap="round">
-      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 17c1.5 0 3-1.5 3-4 0-4-4-7-4-7s-2 5-4 7a4 4 0 0 0 3 7c1.66 0 3-.5 4-2"/>
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+      <defs>
+        <filter id="iconGlowFlame" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="1.7" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <rect x="2.6" y="2.6" width="24.8" height="24.8" rx="8" fill={chip} stroke="rgba(244,176,72,0.45)" />
+      <path d="M12.1 21.1c.95 1 2.1 1.5 3.3 1.5 2.6 0 4.8-2 4.8-5.1 0-4.1-3.9-7.8-3.9-7.8s-.7 2.8-2.7 4.6c-1.5 1.4-2.7 3-2.7 4.7 0 .8.35 1.5 1.2 2.1Z" stroke={stroke} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" filter="url(#iconGlowFlame)"/>
     </svg>
   );
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F4C05F" strokeWidth="1.4" strokeLinecap="round">
-      <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+      <defs>
+        <filter id="iconGlowChart" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="1.7" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <rect x="2.6" y="2.6" width="24.8" height="24.8" rx="8" fill={chip} stroke="rgba(244,176,72,0.45)" />
+      <line x1="20.8" y1="21.8" x2="20.8" y2="12.6" stroke={stroke} strokeWidth="1.7" strokeLinecap="round" filter="url(#iconGlowChart)"/>
+      <line x1="15" y1="21.8" x2="15" y2="8.2" stroke={stroke} strokeWidth="1.7" strokeLinecap="round" filter="url(#iconGlowChart)"/>
+      <line x1="9.2" y1="21.8" x2="9.2" y2="16" stroke={stroke} strokeWidth="1.7" strokeLinecap="round" filter="url(#iconGlowChart)"/>
     </svg>
   );
+}
+
+function normalizeFeatureIcon(icon: string | undefined, fallback: string): string {
+  if (!icon) return fallback;
+  const key = icon.toLowerCase();
+  if (key === "timer") return "timer";
+  if (key === "flame") return "flame";
+  if (key === "chart" || key === "barchart2" || key === "barchart" || key === "trendingup") return "chart";
+  return fallback;
 }
 
 interface Props { data: FeaturedProductData | null; }
@@ -44,23 +91,23 @@ export function FocusChampSection({ data }: Props) {
       id="products"
       ref={ref}
       className="relative py-0"
-      style={{ background: "#0A0A0B" }}
+      style={{ background: "var(--bg-primary)" }}
     >
       {/* Full-width dark card */}
       <div
-        className="max-w-7xl mx-auto mx-4 md:mx-6 lg:mx-10 my-12 rounded-2xl overflow-hidden"
-        style={{ background: "#111113", border: "1px solid #1E1E22", margin: "0 auto" }}
+        className="max-w-7xl mx-auto mx-4 md:mx-6 lg:mx-10 mt-6 mb-12 rounded-2xl overflow-hidden"
+        style={{ background: "var(--bg-surface)", border: "1px solid var(--border-subtle)", boxShadow: "var(--shadow-soft)" }}
       >
         <div className="px-6 md:px-10 pt-8 pb-3">
-          <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#F4C05F]">
+          <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-brand-gold">
             Featured Product
           </span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-0 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-0 lg:items-center">
 
           {/* Left: App info */}
-          <div className="px-6 md:px-10 pb-10 pt-4 lg:max-w-xs">
+          <div className="px-6 md:px-10 py-8 lg:max-w-xs">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-14 h-14 rounded-2xl overflow-hidden flex-shrink-0 shadow-lg">
                 <Image
@@ -72,13 +119,13 @@ export function FocusChampSection({ data }: Props) {
                 />
               </div>
               <div>
-                <div className="text-[17px] font-semibold text-[#EDE8E0]">
+                <div className="text-[17px] font-semibold text-brand-primary">
                   {product?.name ?? "Focus Champ"}
                 </div>
-                <div className="text-sm font-medium" style={{ color: "#158C7D" }}>
+                <div className="text-sm font-medium" style={{ color: "var(--accent-teal)" }}>
                   {product?.tagline ?? "Stay Focused. Achieve More."}
                 </div>
-                <div className="text-xs text-[#F4C05F] mt-1">
+                <div className="text-xs text-brand-gold mt-1">
                   Launching soon on Google Play
                 </div>
               </div>
@@ -87,14 +134,14 @@ export function FocusChampSection({ data }: Props) {
             {/* CTA buttons */}
             <div className="flex items-center gap-3 mb-0">
               <div className="flex items-center gap-2 opacity-60">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#EDE8E0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--text-primary)">
                   <path d="M3.18 23.76c.28.15.6.2.9.13l13.2-7.62-2.88-2.88-11.22 10.37zm-1.5-20.3c-.1.23-.17.5-.17.8v15.48c0 .3.06.57.17.8l.08.08L9.9 12.7v-.2L1.75 3.38l-.07.08zM20.7 10.37l-2.7-1.56-3.06 3.06 3.06 3.06 2.7-1.57c.77-.44.77-1.16.01-1.6l-.01.01zM4.08.24L17.28 7.86l-2.88 2.88L3.18.37c.28-.15.6-.2.9-.13z"/>
                 </svg>
-                <span className="text-xs text-[#8A8A94]">Google Play</span>
+                <span className="text-xs text-brand-secondary">Google Play</span>
               </div>
               <span
                 className="text-xs font-medium px-3 py-1.5 rounded-full"
-                style={{ border: "1px solid rgba(244,192,95,0.3)", color: "#F4C05F", background: "rgba(244,192,95,0.06)" }}
+                style={{ border: "1px solid rgba(244,192,95,0.3)", color: "var(--accent-gold)", background: "rgba(244,192,95,0.06)" }}
               >
                 Coming Soon
               </span>
@@ -102,22 +149,21 @@ export function FocusChampSection({ data }: Props) {
           </div>
 
           {/* Centre divider + features */}
-          <div
-            className="px-6 md:px-10 py-8 lg:border-l lg:border-r"
-            style={{ borderColor: "#1E1E22" }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-full">
+          <div className="px-6 md:px-10 py-8 lg:border-l lg:border-r" style={{ borderColor: "var(--border-subtle)" }}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6 h-full items-start">
               {features.map((f, i) => (
                 <motion.div
                   key={f.label}
                   initial={{ opacity: 0, y: 12 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.2 + i * 0.1 }}
-                  className="flex flex-col gap-3"
+                  className="flex flex-col gap-3 h-full"
                 >
-                  <FeatureIcon type={f.icon ?? (["timer","flame","chart"][i] as string)} />
-                  <div className="text-sm font-semibold text-[#EDE8E0]">{f.label}</div>
-                  <div className="text-[13px] text-[#8A8A94] leading-relaxed">{f.description}</div>
+                  <div className="w-[30px] h-[30px] flex items-center justify-center shrink-0">
+                    <FeatureIcon type={normalizeFeatureIcon(f.icon, ["timer", "flame", "chart"][i] as string)} />
+                  </div>
+                  <div className="text-sm font-semibold text-brand-primary">{f.label}</div>
+                  <div className="text-[13px] text-brand-secondary leading-relaxed">{f.description}</div>
                 </motion.div>
               ))}
             </div>
@@ -128,12 +174,12 @@ export function FocusChampSection({ data }: Props) {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:flex items-end justify-center px-8 pt-6"
-            style={{ minWidth: "200px" }}
+            className="hidden lg:flex items-center justify-center px-10 py-8 self-center"
+            style={{ minWidth: "300px" }}
           >
             <div
               className="phone-frame overflow-hidden relative"
-              style={{ width: "188px", marginBottom: "-1px" }}
+              style={{ width: "236px" }}
             >
               <div
                 className="absolute top-0 left-1/2 -translate-x-1/2 z-10 w-16 h-4 rounded-b-xl"
@@ -142,8 +188,9 @@ export function FocusChampSection({ data }: Props) {
               <Image
                 src={screenshotSrc}
                 alt="Focus Champ dashboard"
-                width={188} height={400}
+                width={236} height={420}
                 className="w-full object-cover object-top"
+                loading="eager"
                 unoptimized={screenshotSrc.startsWith("http")}
               />
             </div>

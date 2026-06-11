@@ -32,29 +32,29 @@ export function Footer({ siteSettings }: Props) {
   };
 
   return (
-    <footer style={{ background: "#0A0A0B", borderTop: "1px solid #1E1E22" }}>
+    <footer style={{ background: "var(--bg-primary)", borderTop: "1px solid var(--border-subtle)" }}>
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Main row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-14 border-b border-[#1E1E22]">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-14 border-b border-brand-subtle">
 
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Logo size="sm" className="mb-4" />
-            <p className="text-xs text-[#5A5A64] leading-relaxed max-w-[200px] mt-4">
+            <p className="text-xs text-brand-dim leading-relaxed max-w-[200px] mt-4">
               An independent software development studio based in India.
             </p>
-            <p className="text-xs text-[#5A5A64] mt-5">
+            <p className="text-xs text-brand-dim mt-5">
               © {new Date().getFullYear()} Stalwart Studios
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#EDE8E0] mb-5">Quick Links</p>
+            <p className="text-xs font-medium tracking-[0.16em] uppercase text-brand-primary mb-5">Quick Links</p>
             <div className="flex flex-col gap-3">
               {quickLinks.map((l) => (
                 <button key={l.label} onClick={() => go(l.href)}
-                  className="text-sm text-[#6A6A74] hover:text-[#EDE8E0] text-left transition-colors duration-200">
+                  className="text-sm text-brand-muted hover:text-brand-primary text-left transition-colors duration-200">
                   {l.label}
                 </button>
               ))}
@@ -63,11 +63,11 @@ export function Footer({ siteSettings }: Props) {
 
           {/* Legal */}
           <div>
-            <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#EDE8E0] mb-5">Legal</p>
+            <p className="text-xs font-medium tracking-[0.16em] uppercase text-brand-primary mb-5">Legal</p>
             <div className="flex flex-col gap-3">
               {legalLinks.map((l) => (
                 <Link key={l.label} href={l.href}
-                  className="text-sm text-[#6A6A74] hover:text-[#EDE8E0] transition-colors duration-200">
+                  className="text-sm text-brand-muted hover:text-brand-primary transition-colors duration-200">
                   {l.label}
                 </Link>
               ))}
@@ -76,14 +76,14 @@ export function Footer({ siteSettings }: Props) {
 
           {/* Contact + Social */}
           <div>
-            <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#EDE8E0] mb-5">Contact</p>
+            <p className="text-xs font-medium tracking-[0.16em] uppercase text-brand-primary mb-5">Contact</p>
             <a href={`mailto:${email1}`}
-              className="text-sm text-[#6A6A74] hover:text-[#EDE8E0] transition-colors block mb-2">{email1}</a>
+              className="text-sm text-brand-muted hover:text-brand-primary transition-colors block mb-2">{email1}</a>
             <a href={`mailto:${email2}`}
-              className="text-sm text-[#6A6A74] hover:text-[#EDE8E0] transition-colors block mb-2">{email2}</a>
-            <p className="text-sm text-[#6A6A74]">{location}</p>
+              className="text-sm text-brand-muted hover:text-brand-primary transition-colors block mb-2">{email2}</a>
+            <p className="text-sm text-brand-muted">{location}</p>
 
-            <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#EDE8E0] mt-8 mb-4">Follow Us</p>
+            <p className="text-xs font-medium tracking-[0.16em] uppercase text-brand-primary mt-8 mb-4">Follow Us</p>
             <div className="flex items-center gap-3">
               {[
                 {
@@ -106,8 +106,8 @@ export function Footer({ siteSettings }: Props) {
                 <a key={s.label} href={s.href}
                   target={s.href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer" aria-label={s.label}
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-[#6A6A74] hover:text-[#F4C05F] transition-colors duration-200"
-                  style={{ border: "1px solid #2A2A2F" }}>
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-brand-muted hover:text-brand-gold transition-colors duration-200"
+                  style={{ border: "1px solid var(--border)", boxShadow: "inset 0 0 0 1px rgba(244,176,72,0.08)" }}>
                   {s.icon}
                 </a>
               ))}

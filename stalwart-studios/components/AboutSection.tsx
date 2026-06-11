@@ -29,7 +29,7 @@ export function AboutSection({ data }: Props) {
       id="about"
       ref={ref}
       className="py-24"
-      style={{ background: "#0A0A0B", borderTop: "1px solid #1E1E22" }}
+      style={{ background: "var(--bg-primary)", borderTop: "1px solid var(--border-subtle)" }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
@@ -41,7 +41,7 @@ export function AboutSection({ data }: Props) {
               className="flex items-center gap-3 mb-6"
             >
               <span className="gold-line" />
-              <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#8A8A94]">
+              <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-brand-secondary">
                 {d.sectionLabel}
               </span>
             </motion.div>
@@ -50,7 +50,7 @@ export function AboutSection({ data }: Props) {
               initial={{ opacity: 0, y: 18 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 }}
-              className="font-fraunces font-semibold text-[#EDE8E0] mb-8 leading-[1.12]"
+              className="font-fraunces font-semibold text-brand-primary mb-8 leading-[1.12]"
               style={{ fontSize: "clamp(1.7rem, 3vw, 2.5rem)" }}
             >
               {d.headline}
@@ -63,7 +63,7 @@ export function AboutSection({ data }: Props) {
               className="space-y-4"
             >
               {d.storyParagraphs.map((p, i) => (
-                <p key={i} className="text-[15px] text-[#6A6A74] leading-relaxed">{p}</p>
+                <p key={i} className="text-[15px] text-brand-muted leading-relaxed">{p}</p>
               ))}
             </motion.div>
           </div>
@@ -83,19 +83,19 @@ export function AboutSection({ data }: Props) {
                 className="group"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-[#F4C05F] font-mono text-sm">{item.sym}</span>
-                  <span className="text-[11px] font-medium tracking-[0.16em] uppercase text-[#8A8A94]">
+                  <span className="text-brand-gold font-mono text-sm">{item.sym}</span>
+                  <span className="text-[11px] font-medium tracking-[0.16em] uppercase text-brand-secondary">
                     {item.label}
                   </span>
                 </div>
                 <p
-                  className="pl-6 border-l transition-colors duration-300 group-hover:border-[#F4C05F]/30"
+                  className="pl-6 border-l transition-colors duration-300"
                   style={{
-                    borderColor: "#2A2A2F",
+                    borderColor: "var(--border)",
                     fontFamily: item.italic ? "'Fraunces', serif" : undefined,
                     fontStyle: item.italic ? "italic" : "normal",
                     fontSize: item.italic ? "17px" : "14px",
-                    color: item.italic ? "#EDE8E0" : "#6A6A74",
+                    color: item.italic ? "var(--text-primary)" : "var(--text-muted)",
                     lineHeight: "1.65",
                     fontWeight: item.italic ? 300 : 400,
                   }}

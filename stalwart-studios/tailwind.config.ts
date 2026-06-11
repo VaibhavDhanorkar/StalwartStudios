@@ -11,15 +11,19 @@ const config: Config = {
       colors: {
         bg: {
           primary: "#0A0A0B",
-          surface: "#141416",
-          elevated: "#1C1C1F",
+          surface: "#111113",
+          elevated: "#18181B",
         },
         border: {
-          DEFAULT: "#2E2E33",
+          DEFAULT: "#2A2A2F",
+          subtle: "#1E1E22",
         },
         text: {
           primary: "#EDE8E0",
-          secondary: "#8E8E96",
+          secondary: "#8A8A94",
+          muted: "#6A6A74",
+          dim: "#5A5A64",
+          faint: "#4A4A52",
         },
         accent: {
           gold: "#F4C05F",

@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-bg-primary">
-      <header className="border-b border-border/40 py-5 px-6">
+    <div className="min-h-screen bg-brand-primary">
+      <header className="border-b py-5 px-6 border-brand-subtle">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <Logo size="sm" />
-          <Link href="/" className="text-sm text-text-secondary hover:text-text-primary transition-colors">
+          <Link href="/" className="text-sm text-brand-secondary hover:text-brand-primary transition-colors">
             ← Back to Home
           </Link>
         </div>
@@ -21,16 +21,16 @@ export default function PrivacyPolicy() {
 
       <main className="max-w-3xl mx-auto px-6 py-16">
         <div className="mb-12">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-accent-gold mb-3">Legal</p>
-          <h1 className="font-fraunces text-4xl font-semibold text-text-primary mb-4">
+          <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand-gold mb-3">Legal</p>
+          <h1 className="font-fraunces text-4xl font-semibold text-brand-primary mb-4">
             Privacy Policy
           </h1>
-          <p className="text-text-secondary text-sm">Last updated: June 2025</p>
+          <p className="text-brand-secondary text-sm">Last updated: June 2025</p>
         </div>
 
-        <div className="prose prose-invert max-w-none space-y-8 text-text-secondary text-sm leading-relaxed">
+        <div className="prose prose-invert max-w-none space-y-8 text-brand-secondary text-sm leading-relaxed">
           <section>
-            <h2 className="font-fraunces text-xl text-text-primary mb-3">1. Introduction</h2>
+            <h2 className="font-fraunces text-xl text-brand-primary mb-3">1. Introduction</h2>
             <p>
               Stalwart Studios ("we", "our", or "us") is committed to protecting your privacy.
               This Privacy Policy explains how we collect, use, disclose, and safeguard your
@@ -44,18 +44,18 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="font-fraunces text-xl text-text-primary mb-3">2. Information We Collect</h2>
+            <h2 className="font-fraunces text-xl text-brand-primary mb-3">2. Information We Collect</h2>
             <p className="mb-3">We may collect the following types of information:</p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong className="text-text-primary">Account Information:</strong> Name and email address when you create an account or contact us.</li>
-              <li><strong className="text-text-primary">Usage Data:</strong> Information about how you use our apps, such as session durations, feature usage, and in-app actions — collected in aggregate to improve the product.</li>
-              <li><strong className="text-text-primary">Device Information:</strong> Device type, operating system version, and app version for compatibility and crash reporting.</li>
-              <li><strong className="text-text-primary">Communications:</strong> Any messages you send us directly via email or contact forms.</li>
+              <li><strong className="text-brand-primary">Account Information:</strong> Name and email address when you create an account or contact us.</li>
+              <li><strong className="text-brand-primary">Usage Data:</strong> Information about how you use our apps, such as session durations, feature usage, and in-app actions — collected in aggregate to improve the product.</li>
+              <li><strong className="text-brand-primary">Device Information:</strong> Device type, operating system version, and app version for compatibility and crash reporting.</li>
+              <li><strong className="text-brand-primary">Communications:</strong> Any messages you send us directly via email or contact forms.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="font-fraunces text-xl text-text-primary mb-3">3. How We Use Your Information</h2>
+            <h2 className="font-fraunces text-xl text-brand-primary mb-3">3. How We Use Your Information</h2>
             <ul className="list-disc pl-6 space-y-2">
               <li>To provide, operate, and maintain our apps and services.</li>
               <li>To improve, personalize, and expand our products.</li>
@@ -66,7 +66,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="font-fraunces text-xl text-text-primary mb-3">4. Data Storage & Security</h2>
+            <h2 className="font-fraunces text-xl text-brand-primary mb-3">4. Data Storage & Security</h2>
             <p>
               Your data is stored securely. We use industry-standard encryption and security
               practices to protect your information. We do not sell, trade, or rent your
@@ -79,7 +79,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="font-fraunces text-xl text-text-primary mb-3">5. Third-Party Services</h2>
+            <h2 className="font-fraunces text-xl text-brand-primary mb-3">5. Third-Party Services</h2>
             <p>
               We may use third-party services for analytics and crash reporting (such as
               Firebase Crashlytics). These services have their own privacy policies and we
@@ -89,7 +89,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="font-fraunces text-xl text-text-primary mb-3">6. Children's Privacy</h2>
+            <h2 className="font-fraunces text-xl text-brand-primary mb-3">6. Children's Privacy</h2>
             <p>
               Our services are not directed to children under 13. We do not knowingly collect
               personal information from children under 13. If you believe a child has provided
@@ -98,7 +98,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="font-fraunces text-xl text-text-primary mb-3">7. Your Rights</h2>
+            <h2 className="font-fraunces text-xl text-brand-primary mb-3">7. Your Rights</h2>
             <p>You have the right to:</p>
             <ul className="list-disc pl-6 mt-3 space-y-2">
               <li>Access the personal data we hold about you.</li>
@@ -108,14 +108,14 @@ export default function PrivacyPolicy() {
             </ul>
             <p className="mt-3">
               To exercise these rights, contact us at{" "}
-              <a href="mailto:support@stalwartstudios.in" className="text-accent-gold hover:underline">
+              <a href="mailto:support@stalwartstudios.in" className="text-brand-gold hover:underline">
                 support@stalwartstudios.in
               </a>.
             </p>
           </section>
 
           <section>
-            <h2 className="font-fraunces text-xl text-text-primary mb-3">8. Changes to This Policy</h2>
+            <h2 className="font-fraunces text-xl text-brand-primary mb-3">8. Changes to This Policy</h2>
             <p>
               We may update this Privacy Policy from time to time. We will notify you of
               any changes by posting the new policy on this page and updating the
@@ -124,10 +124,10 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="font-fraunces text-xl text-text-primary mb-3">9. Contact Us</h2>
+            <h2 className="font-fraunces text-xl text-brand-primary mb-3">9. Contact Us</h2>
             <p>
               If you have any questions about this Privacy Policy, please contact us at{" "}
-              <a href="mailto:support@stalwartstudios.in" className="text-accent-gold hover:underline">
+              <a href="mailto:support@stalwartstudios.in" className="text-brand-gold hover:underline">
                 support@stalwartstudios.in
               </a>.
             </p>

@@ -8,22 +8,22 @@ export const metadata: Metadata = {
 
 export default function Terms() {
   return (
-    <div className="min-h-screen bg-bg-primary">
-      <header className="border-b border-border/40 py-5 px-6">
+    <div className="min-h-screen bg-brand-primary">
+      <header className="border-b py-5 px-6 border-brand-subtle">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <Logo size="sm" />
-          <Link href="/" className="text-sm text-text-secondary hover:text-text-primary transition-colors">
+          <Link href="/" className="text-sm text-brand-secondary hover:text-brand-primary transition-colors">
             ← Back to Home
           </Link>
         </div>
       </header>
       <main className="max-w-3xl mx-auto px-6 py-16">
         <div className="mb-12">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-accent-gold mb-3">Legal</p>
-          <h1 className="font-fraunces text-4xl font-semibold text-text-primary mb-4">Terms of Service</h1>
-          <p className="text-text-secondary text-sm">Last updated: June 2025</p>
+          <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand-gold mb-3">Legal</p>
+          <h1 className="font-fraunces text-4xl font-semibold text-brand-primary mb-4">Terms of Service</h1>
+          <p className="text-brand-secondary text-sm">Last updated: June 2025</p>
         </div>
-        <div className="space-y-8 text-text-secondary text-sm leading-relaxed">
+        <div className="space-y-8 text-brand-secondary text-sm leading-relaxed">
           {[
             { title: "1. Acceptance of Terms", body: "By accessing or using any Stalwart Studios product or service, you agree to be bound by these Terms of Service. If you do not agree, please discontinue use immediately." },
             { title: "2. Use of Services", body: "You agree to use our services only for lawful purposes and in a manner that does not infringe the rights of others. You must not misuse, reverse-engineer, or attempt to gain unauthorized access to any part of our services." },
@@ -34,7 +34,7 @@ export default function Terms() {
             { title: "7. Contact", body: "Questions about these Terms? Email us at support@stalwartstudios.in." },
           ].map((s) => (
             <section key={s.title}>
-              <h2 className="font-fraunces text-xl text-text-primary mb-3">{s.title}</h2>
+              <h2 className="font-fraunces text-xl text-brand-primary mb-3">{s.title}</h2>
               <p>{s.body}</p>
             </section>
           ))}

@@ -27,7 +27,7 @@ export function FutureProducts({ products }: Props) {
     <section
       ref={ref}
       className="py-24"
-      style={{ background: "#0A0A0B", borderTop: "1px solid #1E1E22" }}
+      style={{ background: "var(--bg-primary)", borderTop: "1px solid var(--border-subtle)" }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <motion.div
@@ -36,7 +36,7 @@ export function FutureProducts({ products }: Props) {
           className="flex items-center gap-3 mb-3"
         >
           <span className="gold-line" style={{ background: "#158C7D" }} />
-          <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#8A8A94]">
+          <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-brand-secondary">
             What's Coming
           </span>
         </motion.div>
@@ -45,11 +45,11 @@ export function FutureProducts({ products }: Props) {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1 }}
-          className="font-fraunces font-semibold text-[#EDE8E0] mb-12 leading-[1.1]"
+          className="font-fraunces font-semibold text-brand-primary mb-12 leading-[1.1]"
           style={{ fontSize: "clamp(1.7rem, 3vw, 2.5rem)" }}
         >
           The pipeline is full.<br />
-          <span className="text-[#5A5A64] font-light">Good things take time.</span>
+          <span className="text-brand-dim font-light">Good things take time.</span>
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -60,7 +60,7 @@ export function FutureProducts({ products }: Props) {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.15 + i * 0.12 }}
               className="group relative rounded-xl p-7 overflow-hidden cursor-default"
-              style={{ background: "#111113", border: "1px solid #1E1E22" }}
+              style={{ background: "var(--bg-surface)", border: "1px solid var(--border-subtle)", boxShadow: "var(--shadow-soft)" }}
             >
               {/* Hover glow */}
               <div
@@ -74,7 +74,7 @@ export function FutureProducts({ products }: Props) {
                     <p className="text-[10px] font-medium tracking-[0.18em] uppercase mb-2" style={{ color: p.accentColor }}>
                       {p.category}
                     </p>
-                    <h3 className="font-fraunces text-xl font-semibold text-[#EDE8E0]">{p.name}</h3>
+                    <h3 className="font-fraunces text-xl font-semibold text-brand-primary">{p.name}</h3>
                   </div>
                   <span
                     className="flex-shrink-0 text-[10px] font-medium px-3 py-1.5 rounded-full mt-1"
@@ -84,17 +84,17 @@ export function FutureProducts({ products }: Props) {
                   </span>
                 </div>
 
-                <p className="text-[13px] text-[#6A6A74] leading-relaxed mb-7">{p.description}</p>
+                <p className="text-[13px] text-brand-muted leading-relaxed mb-7">{p.description}</p>
 
                 {/* Progress bar */}
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[11px] text-[#4A4A52]">Development progress</span>
+                    <span className="text-[11px] text-brand-faint">Development progress</span>
                     <span className="text-[11px] font-medium" style={{ color: p.accentColor }}>
                       {STATUS_LABELS[p.status]}
                     </span>
                   </div>
-                  <div className="h-px rounded-full overflow-hidden" style={{ background: "#1E1E22" }}>
+                  <div className="h-px rounded-full overflow-hidden" style={{ background: "var(--border-subtle)" }}>
                     <motion.div
                       className="h-full rounded-full"
                       style={{ background: p.accentColor }}

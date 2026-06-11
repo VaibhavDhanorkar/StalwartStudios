@@ -1,7 +1,21 @@
 import type { Metadata } from "next";
+import { DM_Sans, Fraunces } from "next/font/google";
 import "./globals.css";
 
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://stalwartstudios.in"),
   title: "Stalwart Studios — Crafting Exceptional Software",
   description:
     "Independent software studio building high-performance and customer-centric products. Creators of Focus Champ and more.",
@@ -25,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "Stalwart Studios",
     images: [
       {
-        url: "/og-image.png",
+        url: "/logo-horizontal.svg",
         width: 1200,
         height: 630,
         alt: "Stalwart Studios",
@@ -37,7 +51,7 @@ export const metadata: Metadata = {
     title: "Stalwart Studios — Crafting Exceptional Software",
     description:
       "Independent software studio building high-performance and customer-centric products.",
-    images: ["/og-image.png"],
+    images: ["/logo-horizontal.svg"],
   },
   robots: {
     index: true,
@@ -58,19 +72,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${dmSans.variable} ${fraunces.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
-          rel="stylesheet"
-        />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" />
         <meta name="theme-color" content="#0A0A0B" />
       </head>
       <body className="noise-overlay antialiased">
