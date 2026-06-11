@@ -113,12 +113,12 @@ export function HeroSection({ data }: Props) {
             </motion.h1>
 
             {/* Tagline */}
-            <motion.p variants={item} className="text-[15px] text-brand-teal mb-2 leading-relaxed">
+            <motion.p variants={item} className="text-[15px] text-brand-teal font-semibold mb-2 leading-relaxed">
               {d.taglineWords.join(" ")}
             </motion.p>
 
             {/* Body */}
-            <motion.p variants={item} className="text-[15px] text-brand-secondary leading-relaxed mb-9 max-w-[760px]">
+            <motion.p variants={item} className="text-[15px] text-brand-primary leading-relaxed mb-9 max-w-[760px]">
               {d.body}
             </motion.p>
 

@@ -77,6 +77,15 @@ body > * {
   border-radius: 999px;
 }
 
+.section-heading-line {
+  display: block;
+  width: 56px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(244,176,72,0.96) 0%, rgba(244,176,72,0.78) 100%);
+  box-shadow: 0 0 18px rgba(244,176,72,0.38);
+}
+
 /* Eyebrow pill badge */
 .eyebrow-pill {
   display: inline-flex;
@@ -99,6 +108,12 @@ body > * {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-soft), 0 0 0 1px rgba(244,176,72,0.08) inset;
+}
+
+.section-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
 }
 
 /* Subtle warm radial on dark bg */

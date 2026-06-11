@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import type { WhySectionData } from "@/lib/sanity.fetch";
+import { SectionShell } from "./SectionShell";
 
 // SVG icons redesigned to match the glowing, layered geometric style.
 const PILLAR_ICONS: Record<string, React.ReactNode> = {
@@ -116,34 +117,17 @@ interface Props { data: WhySectionData | null; }
 
 export function WhySection({ data }: Props) {
   const d = data ?? DEFAULTS;
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement | null>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section
-      ref={ref}
-      style={{ background: "var(--bg-surface)", borderTop: "1px solid var(--border-subtle)" }}
+    <SectionShell
+      sectionRef={ref}
+      label={d.sectionLabel}
+      heading={d.headline}
+      headingClassName="whitespace-pre-line max-w-[640px]"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-14">
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="flex items-center gap-3 mb-3"
-        >
-          <span className="gold-line" />
-          <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-brand-secondary">
-            {d.sectionLabel}
-          </span>
-        </motion.div>
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.1 }}
-          className="font-fraunces font-semibold text-brand-primary mb-9 leading-[1.1] whitespace-pre-line max-w-[640px]"
-          style={{ fontSize: "clamp(1.65rem, 2.8vw, 2.35rem)" }}
-        >
-          {d.headline}
-        </motion.h2>
+      <div className="rounded-xl border border-brand-subtle overflow-hidden">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x border-brand-subtle">
           {d.pillars.map((p, i) => {
             const IconEl = PILLAR_ICONS[p.icon] ?? PILLAR_ICONS.Code;
@@ -153,7 +137,7 @@ export function WhySection({ data }: Props) {
                 initial={{ opacity: 0, y: 16 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="px-6 py-8 first:pl-0 last:pr-0"
+                className="px-6 py-8"
               >
                 <div className="pillar-icon mb-5">{IconEl}</div>
                 <h3 className="text-[15px] font-semibold text-brand-primary mb-2">{p.title}</h3>
@@ -163,6 +147,6 @@ export function WhySection({ data }: Props) {
           })}
         </div>
       </div>
-    </section>
+    </SectionShell>
   );
 }

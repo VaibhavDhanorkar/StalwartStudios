@@ -4,11 +4,12 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, CheckCircle } from "lucide-react";
 import type { SiteSettings } from "@/lib/sanity.fetch";
+import { SectionShell } from "./SectionShell";
 
 interface Props { siteSettings?: SiteSettings | null; }
 
 export function ContactSection({ siteSettings }: Props) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement | null>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -17,28 +18,18 @@ export function ContactSection({ siteSettings }: Props) {
   const location = siteSettings?.location ?? "India";
 
   return (
-    <section
+    <SectionShell
       id="contact"
-      ref={ref}
-      className="py-24"
-      style={{ background: "var(--bg-primary)", borderTop: "1px solid var(--border-subtle)" }}
+      sectionRef={ref}
+      label="Get in Touch"
+      heading="We'd love to hear from you."
+      headingClassName="max-w-[680px]"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <span className="gold-line" />
-              <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-brand-secondary">Get in Touch</span>
-            </div>
-            <h2
-              className="font-fraunces font-semibold text-brand-primary mb-5 leading-[1.1]"
-              style={{ fontSize: "clamp(1.7rem, 3vw, 2.5rem)" }}
-            >
-              We'd love to hear from you.
-            </h2>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+        >
             <p className="text-[15px] text-brand-muted leading-relaxed mb-10 max-w-sm">
               Whether you have a question, want to collaborate, or just want to say hello — we read every message.
             </p>
@@ -52,15 +43,15 @@ export function ContactSection({ siteSettings }: Props) {
                 <p className="text-sm text-brand-primary">{location}</p>
               </div>
             </div>
-          </motion.div>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.15 }}
-            className="rounded-xl p-8"
-            style={{ background: "var(--bg-surface)", border: "1px solid var(--border-subtle)", boxShadow: "var(--shadow-soft)" }}
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.15 }}
+          className="rounded-xl p-8"
+          style={{ background: "var(--bg-elevated)", border: "1px solid var(--border-subtle)" }}
+        >
             {sent ? (
               <div className="flex flex-col items-center justify-center h-52 gap-4 text-center">
                 <CheckCircle size={32} style={{ color: "var(--accent-teal)" }} />
@@ -112,9 +103,8 @@ export function ContactSection({ siteSettings }: Props) {
                 </button>
               </form>
             )}
-          </motion.div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </SectionShell>
   );
 }
