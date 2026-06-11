@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,22 +6,22 @@
 
 :root {
   --bg-primary: #0A0A0B;
-  --bg-surface: #141416;
-  --bg-elevated: #1C1C1F;
-  --border: #2E2E33;
+  --bg-surface: #111113;
+  --bg-elevated: #18181B;
+  --bg-card: #1A1A1D;
+  --border: #2A2A2F;
+  --border-subtle: #222226;
   --text-primary: #EDE8E0;
-  --text-secondary: #8E8E96;
+  --text-secondary: #8A8A94;
+  --text-muted: #4A4A52;
   --accent-gold: #F4C05F;
+  --accent-gold-dim: #C49840;
   --accent-teal: #158C7D;
+  --warm-glow: rgba(244, 192, 95, 0.06);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
   background-color: var(--bg-primary);
@@ -32,82 +32,84 @@ body {
   overflow-x: hidden;
 }
 
-::selection {
-  background: rgba(244, 192, 95, 0.2);
-  color: var(--text-primary);
-}
+::selection { background: rgba(244,192,95,0.18); color: var(--text-primary); }
 
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
-}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3A3A42; }
 
-.font-fraunces {
-  font-family: 'Fraunces', Georgia, serif;
-}
+.font-fraunces { font-family: 'Fraunces', Georgia, serif; }
 
-.text-gradient-gold {
-  background: linear-gradient(135deg, #F4C05F 0%, #E8A83A 100%);
+.text-gold {
+  background: linear-gradient(135deg, #F4C05F 0%, #E8A840 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.text-gradient-teal {
-  background: linear-gradient(135deg, #158C7D 0%, #1AA896 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.border-gradient {
-  border-image: linear-gradient(135deg, rgba(244,192,95,0.3), rgba(21,140,125,0.3)) 1;
-}
-
-/* Focus Champ section - light cream theme */
-.fc-section {
-  background: #FFF8EF;
-  color: #1A1A1A;
-}
-
-/* Noise texture overlay */
-.noise-overlay::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.03;
-}
-
-/* Glow effects */
-.glow-gold {
-  box-shadow: 0 0 40px rgba(244, 192, 95, 0.08);
-}
-.glow-teal {
-  box-shadow: 0 0 40px rgba(21, 140, 125, 0.08);
-}
-
-/* Section divider line */
-.section-line {
-  width: 48px;
-  height: 1px;
-  background: var(--accent-gold);
+/* Gold horizontal rule / divider */
+.gold-line {
   display: block;
+  width: 32px;
+  height: 1.5px;
+  background: var(--accent-gold);
+}
+
+/* Eyebrow pill badge — matches the "INDIE SOFTWARE STUDIO" tag in the design */
+.eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(244,192,95,0.25);
+  background: rgba(244,192,95,0.06);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+/* Card with warm border */
+.card-warm {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+/* Subtle warm radial on dark bg */
+.warm-radial {
+  background: radial-gradient(ellipse 70% 50% at 60% 40%, rgba(244,192,95,0.045) 0%, transparent 70%),
+              radial-gradient(ellipse 40% 40% at 85% 70%, rgba(21,140,125,0.03) 0%, transparent 60%);
+}
+
+/* Phone frame gold border */
+.phone-frame {
+  border-radius: 2.8rem;
+  border: 3px solid rgba(200, 170, 90, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(200,170,90,0.15),
+    0 40px 80px rgba(0,0,0,0.6),
+    0 8px 24px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* Pillar icon circle */
+.pillar-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(244,192,95,0.2);
+  background: rgba(244,192,95,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  flex-shrink: 0;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  .text-balance { text-wrap: balance; }
 }

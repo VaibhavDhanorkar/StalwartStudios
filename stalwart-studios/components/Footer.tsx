@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { Logo } from "./Logo";
 import { Mail } from "lucide-react";
+import { Logo } from "./Logo";
+import type { SiteSettings } from "@/lib/sanity.fetch";
 
 const quickLinks = [
   { label: "Home", href: "#home" },
@@ -10,46 +11,50 @@ const quickLinks = [
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
-
 const legalLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms of Service", href: "/terms" },
-  { label: "Refund Policy", href: "/refund-policy" },
+  { label: "Terms & Conditions", href: "/terms" },
+  { label: "Refund / Cancellation Policy", href: "/refund-policy" },
 ];
 
-export function Footer() {
-  const handleNavClick = (href: string) => {
-    if (href.startsWith("#")) {
-      const el = document.getElementById(href.replace("#", ""));
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }
+interface Props { siteSettings?: SiteSettings | null; }
+
+export function Footer({ siteSettings }: Props) {
+  const email1 = "hello@stalwartstudios.com";
+  const email2 = siteSettings?.supportEmail ?? "support@stalwartstudios.in";
+  const location = siteSettings?.location ?? "India";
+  const twitter = siteSettings?.socialLinks?.twitter ?? "#";
+  const linkedin = siteSettings?.socialLinks?.linkedin ?? "#";
+
+  const go = (href: string) => {
+    if (href.startsWith("#"))
+      document.getElementById(href.replace("#", ""))?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <footer className="border-t border-border/40 bg-bg-surface/30">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Top */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer style={{ background: "#0A0A0B", borderTop: "1px solid #1E1E22" }}>
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
+        {/* Main row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-14 border-b border-[#1E1E22]">
+
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <Logo size="md" className="mb-5" />
-            <p className="text-sm text-text-secondary leading-relaxed max-w-[220px]">
-              An independent software studio building products that respect people.
+          <div className="col-span-2 md:col-span-1">
+            <Logo size="sm" className="mb-4" />
+            <p className="text-xs text-[#5A5A64] leading-relaxed max-w-[200px] mt-4">
+              An independent software development studio based in India.
+            </p>
+            <p className="text-xs text-[#5A5A64] mt-5">
+              © {new Date().getFullYear()} Stalwart Studios
             </p>
           </div>
 
-          {/* Quick links */}
+          {/* Quick Links */}
           <div>
-            <p className="text-xs font-medium tracking-[0.18em] uppercase text-text-secondary/60 mb-5">
-              Quick Links
-            </p>
+            <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#EDE8E0] mb-5">Quick Links</p>
             <div className="flex flex-col gap-3">
               {quickLinks.map((l) => (
-                <button
-                  key={l.label}
-                  onClick={() => handleNavClick(l.href)}
-                  className="text-sm text-text-secondary hover:text-text-primary text-left transition-colors duration-200"
-                >
+                <button key={l.label} onClick={() => go(l.href)}
+                  className="text-sm text-[#6A6A74] hover:text-[#EDE8E0] text-left transition-colors duration-200">
                   {l.label}
                 </button>
               ))}
@@ -58,16 +63,11 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <p className="text-xs font-medium tracking-[0.18em] uppercase text-text-secondary/60 mb-5">
-              Legal
-            </p>
+            <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#EDE8E0] mb-5">Legal</p>
             <div className="flex flex-col gap-3">
               {legalLinks.map((l) => (
-                <Link
-                  key={l.label}
-                  href={l.href}
-                  className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200"
-                >
+                <Link key={l.label} href={l.href}
+                  className="text-sm text-[#6A6A74] hover:text-[#EDE8E0] transition-colors duration-200">
                   {l.label}
                 </Link>
               ))}
@@ -76,48 +76,43 @@ export function Footer() {
 
           {/* Contact + Social */}
           <div>
-            <p className="text-xs font-medium tracking-[0.18em] uppercase text-text-secondary/60 mb-5">
-              Contact
-            </p>
-            <a
-              href="mailto:support@stalwartstudios.in"
-              className="text-sm text-text-secondary hover:text-accent-gold transition-colors duration-200 block mb-2"
-            >
-              support@stalwartstudios.in
-            </a>
-            <p className="text-sm text-text-secondary/50 mb-8">India</p>
+            <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#EDE8E0] mb-5">Contact</p>
+            <a href={`mailto:${email1}`}
+              className="text-sm text-[#6A6A74] hover:text-[#EDE8E0] transition-colors block mb-2">{email1}</a>
+            <a href={`mailto:${email2}`}
+              className="text-sm text-[#6A6A74] hover:text-[#EDE8E0] transition-colors block mb-2">{email2}</a>
+            <p className="text-sm text-[#6A6A74]">{location}</p>
 
-            <p className="text-xs font-medium tracking-[0.18em] uppercase text-text-secondary/60 mb-4">
-              Follow Us
-            </p>
+            <p className="text-xs font-medium tracking-[0.16em] uppercase text-[#EDE8E0] mt-8 mb-4">Follow Us</p>
             <div className="flex items-center gap-3">
               {[
-                { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.633 5.904-5.633zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>, href: "https://twitter.com/stalwartstudios", label: "Twitter" },
-                { icon: <Mail size={14} />, href: "mailto:support@stalwartstudios.in", label: "Email" },
+                {
+                  href: twitter, label: "Twitter",
+                  icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.633 5.904-5.633zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                },
+                {
+                  href: linkedin, label: "LinkedIn",
+                  icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>
+                  </svg>
+                },
+                {
+                  href: `mailto:${email2}`, label: "Email",
+                  icon: <Mail size={14} />
+                },
               ].map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
+                <a key={s.label} href={s.href}
                   target={s.href.startsWith("http") ? "_blank" : undefined}
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-text-secondary hover:border-accent-gold/50 hover:text-accent-gold transition-all duration-200"
-                >
+                  rel="noopener noreferrer" aria-label={s.label}
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-[#6A6A74] hover:text-[#F4C05F] transition-colors duration-200"
+                  style={{ border: "1px solid #2A2A2F" }}>
                   {s.icon}
                 </a>
               ))}
             </div>
           </div>
-        </div>
-
-        {/* Bottom */}
-        <div className="py-6 border-t border-border/30 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-text-secondary/40">
-            © {new Date().getFullYear()} Stalwart Studios. All rights reserved.
-          </p>
-          <p className="text-xs text-text-secondary/30">
-            Crafted with care in India.
-          </p>
         </div>
       </div>
     </footer>

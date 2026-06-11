@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" fill="none">
+  <!-- Archway icon -->
+  <g transform="translate(64,2)">
+    <!-- outer arch -->
+    <path d="M4 32 L4 16 Q4 4 16 4 Q28 4 28 16 L28 32" stroke="#F4C05F" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- inner arch -->
+    <path d="M9 32 L9 17 Q9 9 16 9 Q23 9 23 17 L23 32" stroke="#F4C05F" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.5"/>
+    <!-- keystone dot -->
+    <circle cx="16" cy="4" r="1.5" fill="#F4C05F"/>
+    <!-- base line -->
+    <line x1="1" y1="32" x2="31" y2="32" stroke="#F4C05F" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- teal accent line inside arch -->
+    <path d="M12 32 L12 19 Q12 13 16 13 Q20 13 20 19 L20 32" stroke="#158C7D" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.7"/>
+  </g>
+  <!-- STALWART text -->
+  <text x="80" y="50" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#EDE8E0" letter-spacing="4">STALWART</text>
+  <!-- gold divider line -->
+  <line x1="24" y1="56" x2="136" y2="56" stroke="#F4C05F" stroke-width="1"/>
+  <!-- STUDIOS text -->
+  <text x="80" y="70" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="10" font-weight="300" fill="#EDE8E0" letter-spacing="5.5">STUDIOS</text>
+</svg>

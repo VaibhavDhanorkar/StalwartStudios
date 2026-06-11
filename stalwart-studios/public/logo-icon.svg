@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <rect width="48" height="48" rx="10" fill="#111113"/>
+  <!-- Archway -->
+  <path d="M7 40 L7 22 Q7 8 24 8 Q41 8 41 22 L41 40" stroke="#F4C05F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M13 40 L13 23 Q13 14 24 14 Q35 14 35 23 L35 40" stroke="#F4C05F" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+  <path d="M19 40 L19 25 Q19 20 24 20 Q29 20 29 25 L29 40" stroke="#158C7D" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <circle cx="24" cy="8" r="2.2" fill="#F4C05F"/>
+  <line x1="4" y1="40" x2="44" y2="40" stroke="#F4C05F" stroke-width="2" stroke-linecap="round"/>
+</svg>
