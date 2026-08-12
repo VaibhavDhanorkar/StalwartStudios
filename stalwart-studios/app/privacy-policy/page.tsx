@@ -1,139 +1,141 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Logo } from "@/components/Logo";
+import { LegalPage } from "@/components/LegalPage";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Stalwart Studios",
-  description: "Privacy Policy for Stalwart Studios and its products.",
+  title: "Privacy Policy",
+  description: `Privacy Policy for ${site.entity} and its products.`,
 };
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-brand-primary">
-      <header className="border-b py-5 px-6 border-brand-subtle">
-        <div className="max-w-3xl mx-auto flex items-center justify-between">
-          <Logo size="sm" />
-          <Link href="/" className="text-sm text-brand-secondary hover:text-brand-primary transition-colors">
-            ← Back to Home
-          </Link>
-        </div>
-      </header>
+    <LegalPage title="Privacy Policy" updated="August 2026">
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">1. Introduction</h2>
+        <p>
+          {site.entity} (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy.
+          This Privacy Policy explains how we collect, use, disclose, and safeguard information when
+          you use our website, mobile apps (including Focus Champ), and related digital products.
+        </p>
+        <p className="mt-3">
+          We process personal data in accordance with applicable laws, including India&apos;s Digital
+          Personal Data Protection Act, 2023 (DPDP) and, where applicable, the EU General Data
+          Protection Regulation (GDPR).
+        </p>
+      </section>
 
-      <main className="max-w-3xl mx-auto px-6 py-16">
-        <div className="mb-12">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand-gold mb-3">Legal</p>
-          <h1 className="font-fraunces text-4xl font-semibold text-brand-primary mb-4">
-            Privacy Policy
-          </h1>
-          <p className="text-brand-secondary text-sm">Last updated: June 2025</p>
-        </div>
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">2. Information We Collect</h2>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>
+            <strong className="text-brand-primary">Account & contact data:</strong> name, email, and
+            messages you send via forms or support channels.
+          </li>
+          <li>
+            <strong className="text-brand-primary">Usage & analytics:</strong> app and website
+            interaction events, approximate device/app version, and performance metrics.
+          </li>
+          <li>
+            <strong className="text-brand-primary">Crash logs:</strong> diagnostic data via Firebase
+            Crashlytics or similar tooling to improve stability.
+          </li>
+          <li>
+            <strong className="text-brand-primary">Device identifiers:</strong> identifiers required
+            for analytics, fraud prevention, or store billing attribution where permitted.
+          </li>
+          <li>
+            <strong className="text-brand-primary">Cookies / local storage:</strong> essential and
+            preference storage on the website; analytics cookies where used.
+          </li>
+          <li>
+            <strong className="text-brand-primary">Payment data:</strong> we do not store full card
+            numbers. Payments are processed by Google Play Billing (mobile) or Razorpay / Cashfree
+            (web), who act as payment processors.
+          </li>
+        </ul>
+      </section>
 
-        <div className="prose prose-invert max-w-none space-y-8 text-brand-secondary text-sm leading-relaxed">
-          <section>
-            <h2 className="font-fraunces text-xl text-brand-primary mb-3">1. Introduction</h2>
-            <p>
-              Stalwart Studios ("we", "our", or "us") is committed to protecting your privacy.
-              This Privacy Policy explains how we collect, use, disclose, and safeguard your
-              information when you use our products and services, including Focus Champ and
-              this website.
-            </p>
-            <p className="mt-3">
-              By using our services, you agree to the collection and use of information in
-              accordance with this policy. If you do not agree, please do not use our services.
-            </p>
-          </section>
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">3. How We Use Information</h2>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>Provide, maintain, and improve our products and website.</li>
+          <li>Process purchases, subscriptions, and refunds through the relevant channel.</li>
+          <li>Respond to support and grievance requests.</li>
+          <li>Monitor reliability, security, and abuse.</li>
+          <li>Comply with legal obligations.</li>
+        </ul>
+      </section>
 
-          <section>
-            <h2 className="font-fraunces text-xl text-brand-primary mb-3">2. Information We Collect</h2>
-            <p className="mb-3">We may collect the following types of information:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong className="text-brand-primary">Account Information:</strong> Name and email address when you create an account or contact us.</li>
-              <li><strong className="text-brand-primary">Usage Data:</strong> Information about how you use our apps, such as session durations, feature usage, and in-app actions — collected in aggregate to improve the product.</li>
-              <li><strong className="text-brand-primary">Device Information:</strong> Device type, operating system version, and app version for compatibility and crash reporting.</li>
-              <li><strong className="text-brand-primary">Communications:</strong> Any messages you send us directly via email or contact forms.</li>
-            </ul>
-          </section>
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">4. Third-Party Processors</h2>
+        <p className="mb-3">We may share data with processors that help us operate, including:</p>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>Google Play Billing (in-app purchases and subscriptions)</li>
+          <li>Razorpay and Cashfree (web payments)</li>
+          <li>Cloud analytics and crash reporting providers (e.g. Firebase)</li>
+          <li>Hosting and email infrastructure providers</li>
+        </ul>
+        <p className="mt-3">
+          These parties process data under their own terms and only as needed to perform services for us.
+        </p>
+      </section>
 
-          <section>
-            <h2 className="font-fraunces text-xl text-brand-primary mb-3">3. How We Use Your Information</h2>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>To provide, operate, and maintain our apps and services.</li>
-              <li>To improve, personalize, and expand our products.</li>
-              <li>To respond to your comments and questions.</li>
-              <li>To send you product updates and communications (only with your consent).</li>
-              <li>To detect and prevent fraud, abuse, or security issues.</li>
-            </ul>
-          </section>
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">5. Your Rights</h2>
+        <p className="mb-3">Subject to applicable law, you may request:</p>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>Access to personal data we hold about you</li>
+          <li>Correction of inaccurate data</li>
+          <li>Deletion of personal data where legally permitted</li>
+          <li>Withdrawal of consent where processing is consent-based</li>
+        </ul>
+        <p className="mt-3">
+          Contact our Data Protection / Grievance Officer at{" "}
+          <a href={`mailto:${site.supportEmail}`} className="text-brand-gold">
+            {site.supportEmail}
+          </a>{" "}
+          or {site.phone}.
+        </p>
+      </section>
 
-          <section>
-            <h2 className="font-fraunces text-xl text-brand-primary mb-3">4. Data Storage & Security</h2>
-            <p>
-              Your data is stored securely. We use industry-standard encryption and security
-              practices to protect your information. We do not sell, trade, or rent your
-              personal data to third parties.
-            </p>
-            <p className="mt-3">
-              Focus Champ stores task and focus session data locally on your device by default.
-              Any cloud sync features (when available) will be clearly disclosed.
-            </p>
-          </section>
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">6. Data Retention & Security</h2>
+        <p>
+          We retain personal data only as long as needed for the purposes above or as required by
+          law. We apply reasonable technical and organizational measures to protect data against
+          unauthorized access, loss, or alteration.
+        </p>
+      </section>
 
-          <section>
-            <h2 className="font-fraunces text-xl text-brand-primary mb-3">5. Third-Party Services</h2>
-            <p>
-              We may use third-party services for analytics and crash reporting (such as
-              Firebase Crashlytics). These services have their own privacy policies and we
-              encourage you to review them. We ensure any third-party we use meets
-              reasonable privacy standards.
-            </p>
-          </section>
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">7. Merchant Identity</h2>
+        <ul className="list-none space-y-2">
+          <li>
+            <strong className="text-brand-primary">Legal entity:</strong> {site.legalName}
+          </li>
+          <li>
+            <strong className="text-brand-primary">Udyam:</strong> {site.udyam}
+          </li>
+          <li>
+            <strong className="text-brand-primary">Address:</strong> {site.address}
+          </li>
+          <li>
+            <strong className="text-brand-primary">Email:</strong> {site.supportEmail}
+          </li>
+          <li>
+            <strong className="text-brand-primary">Phone:</strong> {site.phone}
+          </li>
+        </ul>
+      </section>
 
-          <section>
-            <h2 className="font-fraunces text-xl text-brand-primary mb-3">6. Children's Privacy</h2>
-            <p>
-              Our services are not directed to children under 13. We do not knowingly collect
-              personal information from children under 13. If you believe a child has provided
-              us personal information, please contact us and we will delete it promptly.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-fraunces text-xl text-brand-primary mb-3">7. Your Rights</h2>
-            <p>You have the right to:</p>
-            <ul className="list-disc pl-6 mt-3 space-y-2">
-              <li>Access the personal data we hold about you.</li>
-              <li>Request correction of inaccurate data.</li>
-              <li>Request deletion of your data.</li>
-              <li>Opt out of marketing communications at any time.</li>
-            </ul>
-            <p className="mt-3">
-              To exercise these rights, contact us at{" "}
-              <a href="mailto:support@stalwartstudios.in" className="text-brand-gold hover:underline">
-                support@stalwartstudios.in
-              </a>.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-fraunces text-xl text-brand-primary mb-3">8. Changes to This Policy</h2>
-            <p>
-              We may update this Privacy Policy from time to time. We will notify you of
-              any changes by posting the new policy on this page and updating the
-              "last updated" date. We encourage you to review this policy periodically.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-fraunces text-xl text-brand-primary mb-3">9. Contact Us</h2>
-            <p>
-              If you have any questions about this Privacy Policy, please contact us at{" "}
-              <a href="mailto:support@stalwartstudios.in" className="text-brand-gold hover:underline">
-                support@stalwartstudios.in
-              </a>.
-            </p>
-          </section>
-        </div>
-      </main>
-    </div>
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">8. Changes</h2>
+        <p>
+          We may update this Privacy Policy from time to time. The &quot;Last updated&quot; date at
+          the top reflects the latest revision. Continued use of our services after changes
+          constitutes acceptance of the updated policy where permitted by law.
+        </p>
+      </section>
+    </LegalPage>
   );
 }

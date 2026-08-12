@@ -26,8 +26,17 @@ const config: Config = {
           faint: "#4A4A52",
         },
         accent: {
-          gold: "#F4C05F",
+          gold: "#F4B048",
+          "gold-muted": "#C4923A",
           teal: "#158C7D",
+        },
+        space: {
+          1: "4px",
+          2: "8px",
+          3: "16px",
+          4: "24px",
+          5: "32px",
+          6: "64px",
         },
       },
       fontFamily: {

@@ -1,47 +1,78 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Logo } from "@/components/Logo";
+import { LegalPage } from "@/components/LegalPage";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Refund Policy — Stalwart Studios",
+  title: "Refund Policy",
+  description: `Refund and cancellation policy for ${site.entity}.`,
 };
 
 export default function RefundPolicy() {
   return (
-    <div className="min-h-screen bg-brand-primary">
-      <header className="border-b py-5 px-6 border-brand-subtle">
-        <div className="max-w-3xl mx-auto flex items-center justify-between">
-          <Logo size="sm" />
-          <Link href="/" className="text-sm text-brand-secondary hover:text-brand-primary transition-colors">
-            ← Back to Home
-          </Link>
-        </div>
-      </header>
-      <main className="max-w-3xl mx-auto px-6 py-16">
-        <div className="mb-12">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand-gold mb-3">Legal</p>
-          <h1 className="font-fraunces text-4xl font-semibold text-brand-primary mb-4">Refund Policy</h1>
-          <p className="text-brand-secondary text-sm">Last updated: June 2025</p>
-        </div>
-        <div className="space-y-8 text-brand-secondary text-sm leading-relaxed">
-          <section>
-            <h2 className="font-fraunces text-xl text-brand-primary mb-3">Our Approach</h2>
-            <p>We stand behind every product we ship. If something isn't working for you, we want to make it right. Our refund policy is straightforward and fair.</p>
-          </section>
-          <section>
-            <h2 className="font-fraunces text-xl text-brand-primary mb-3">In-App Purchases & Subscriptions</h2>
-            <p>All purchases made through the Google Play Store are subject to Google Play's refund policy. You may request a refund through Google Play within 48 hours of purchase. For subscriptions, you can cancel at any time — you will retain access until the end of the billing period.</p>
-          </section>
-          <section>
-            <h2 className="font-fraunces text-xl text-brand-primary mb-3">Exceptions</h2>
-            <p>Refunds will not be issued for change of mind after the refund window has closed, or for accounts found to be in violation of our Terms of Service.</p>
-          </section>
-          <section>
-            <h2 className="font-fraunces text-xl text-brand-primary mb-3">How to Request a Refund</h2>
-            <p>For any refund requests or billing questions, please email us at <a href="mailto:support@stalwartstudios.in" className="text-brand-gold hover:underline">support@stalwartstudios.in</a> with your order details. We typically respond within 1–2 business days.</p>
-          </section>
-        </div>
-      </main>
-    </div>
+    <LegalPage title="Refund & Cancellation Policy" updated="August 2026">
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">1. Overview</h2>
+        <p>
+          This policy explains how refunds and cancellations work for purchases made through{" "}
+          {site.entity}. The applicable channel — Google Play or web payment — determines the
+          process.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">2. Web Purchases (Razorpay / Cashfree)</h2>
+        <p>
+          For eligible web transactions, approved refunds are typically processed within{" "}
+          <strong className="text-brand-primary">5–7 business days</strong> to the original payment
+          method, subject to your bank or card issuer. Contact{" "}
+          <a href={`mailto:${site.supportEmail}`} className="text-brand-gold">
+            {site.supportEmail}
+          </a>{" "}
+          with your order details to request a review.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">
+          3. Mobile Apps (Focus Champ & Future Apps on Google Play)
+        </h2>
+        <p>
+          In-app purchases and subscriptions made through Google Play are governed by{" "}
+          <strong className="text-brand-primary">Google Play&apos;s refund guidelines</strong>. You
+          may request refunds through Google Play (often within the Play refund window) or manage /
+          cancel subscriptions in your Google Play account settings. Access continues until the end
+          of the paid period when you cancel a subscription.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">4. Channel Separation</h2>
+        <p>
+          Play Store purchases cannot be refunded through Razorpay/Cashfree or our website
+          checkout, and web purchases cannot be refunded through Google Play. Always use the
+          channel where the payment was originally made.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">5. Exceptions</h2>
+        <p>
+          We may decline refunds where required by law or store policy — for example, after a
+          refund window has closed, for abuse or Terms violations, or for digital goods already
+          substantially consumed where applicable rules allow.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">6. Contact</h2>
+        <p>
+          Email{" "}
+          <a href={`mailto:${site.supportEmail}`} className="text-brand-gold">
+            {site.supportEmail}
+          </a>{" "}
+          or call {site.phone}. Entity: {site.legalName}; Udyam: {site.udyam}.
+        </p>
+      </section>
+    </LegalPage>
   );
 }

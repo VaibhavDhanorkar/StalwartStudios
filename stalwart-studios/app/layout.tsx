@@ -1,57 +1,72 @@
 import type { Metadata } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
   display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
   display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://stalwartstudios.in"),
-  title: "Stalwart Studios — Crafting Exceptional Software",
+  metadataBase: new URL(site.siteUrl),
+  title: {
+    default: `${site.entity} — Precision Software Studio`,
+    template: `%s — ${site.entity}`,
+  },
   description:
-    "Independent software studio building high-performance and customer-centric products. Creators of Focus Champ and more.",
+    "Stalwart Digital Studios builds high-performance proprietary software. Creators of Focus Champ and more.",
   keywords: [
-    "Stalwart Studios",
+    "Stalwart Digital Studios",
     "software studio",
     "Focus Champ",
     "productivity app",
     "indie software",
     "mobile apps",
   ],
-  authors: [{ name: "Stalwart Studios" }],
-  creator: "Stalwart Studios",
+  authors: [{ name: site.entity }],
+  creator: site.entity,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://stalwartstudios.in",
-    title: "Stalwart Studios — Crafting Exceptional Software",
+    locale: "en_IN",
+    url: site.siteUrl,
+    title: `${site.entity} — Precision Software Studio`,
     description:
-      "Independent software studio building high-performance and customer-centric products.",
-    siteName: "Stalwart Studios",
+      "Independent product studio shipping proprietary software with precision.",
+    siteName: site.entity,
     images: [
       {
-        url: "/logo-horizontal.svg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Stalwart Studios",
+        alt: site.entity,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stalwart Studios — Crafting Exceptional Software",
+    title: `${site.entity} — Precision Software Studio`,
     description:
-      "Independent software studio building high-performance and customer-centric products.",
-    images: ["/logo-horizontal.svg"],
+      "Independent product studio shipping proprietary software with precision.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -66,19 +81,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`scroll-smooth ${dmSans.variable} ${fraunces.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.svg" />
         <meta name="theme-color" content="#0A0A0B" />
       </head>
       <body className="noise-overlay antialiased">
+        <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   );

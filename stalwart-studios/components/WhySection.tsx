@@ -103,7 +103,7 @@ const PILLAR_ICONS: Record<string, React.ReactNode> = {
 };
 
 const DEFAULTS: WhySectionData = {
-  sectionLabel: "Why Stalwart Studios",
+  sectionLabel: "Why Stalwart Digital Studios",
   headline: "Built on principles,\nnot just preferences.",
   pillars: [
     { icon: "Performance", title: "Performance First", description: "Fast, reliable and efficient software." },
@@ -128,7 +128,7 @@ export function WhySection({ data }: Props) {
       headingClassName="whitespace-pre-line max-w-[640px]"
     >
       <div className="rounded-xl border border-brand-subtle overflow-hidden">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x border-brand-subtle">
+        <div className="pillar-grid pillar-grid--4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
           {d.pillars.map((p, i) => {
             const IconEl = PILLAR_ICONS[p.icon] ?? PILLAR_ICONS.Code;
             return (
@@ -137,11 +137,18 @@ export function WhySection({ data }: Props) {
                 initial={{ opacity: 0, y: 16 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="px-6 py-8"
+                className="pillar-grid-item group relative h-full"
               >
-                <div className="pillar-icon mb-5">{IconEl}</div>
-                <h3 className="text-[15px] font-semibold text-brand-primary mb-2">{p.title}</h3>
-                <p className="text-[13px] text-brand-secondary leading-relaxed">{p.description}</p>
+                <span
+                  className={`pillar-glow-top ${i % 2 === 0 ? "pillar-glow-top--gold" : "pillar-glow-top--teal"}`}
+                />
+                <span className="pillar-fade-line-v" aria-hidden="true" />
+                <span className="pillar-fade-line-h" aria-hidden="true" />
+                <div className="pillar-cell h-full">
+                  <div className="pillar-icon mb-5">{IconEl}</div>
+                  <h3 className="text-[15px] font-semibold text-brand-primary mb-2">{p.title}</h3>
+                  <p className="text-[13px] text-brand-secondary leading-relaxed">{p.description}</p>
+                </div>
               </motion.div>
             );
           })}
