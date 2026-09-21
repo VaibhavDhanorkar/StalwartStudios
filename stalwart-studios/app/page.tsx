@@ -1,12 +1,12 @@
 import { HeroSection } from "@/components/HeroSection";
-import { FocusChampSection } from "@/components/FocusChampSection";
+import { FovenaSection } from "@/components/FovenaSection";
 import { StudioSignal } from "@/components/StudioSignal";
 
 export default function Home() {
   return (
     <main>
       <HeroSection />
-      <FocusChampSection tease />
+      <FovenaSection tease />
       <StudioSignal />
     </main>
   );

@@ -24,14 +24,14 @@ export type ProductWithAssets = Product & {
   screenshotSrc: string;
 };
 
-export const focusChamp: ProductWithAssets = {
+export const fovena: ProductWithAssets = {
   slug: "focus-champ",
-  name: "Focus Champ",
+  name: "Fovena",
   tagline: "Stay Focused. Achieve More.",
   description:
-    "A freemium focus and habit app for people who want deep work without the noise. Smart timers, streaks, and clear progress — launching soon on Google Play.",
-  status: "launching",
-  statusLabel: "Launching soon",
+    "A freemium focus and habit app for people who want deep work without the noise. Smart timers, streaks, and clear progress — with optional ambient sounds for deeper focus. Core features work locally on your device; optional Pro unlocks more on Google Play.",
+  status: "shipped",
+  statusLabel: "Live on Google Play",
   category: "Productivity",
   accentColor: "#F4B048",
   iconSrc: "/focus-champ-icon.png",
@@ -40,6 +40,10 @@ export const focusChamp: ProductWithAssets = {
   freemium: true,
   playStoreUrl: "",
   href: "/products/focus-champ",
+  legalLinks: {
+    privacy: "/fovena/privacy",
+    terms: "/fovena/terms",
+  },
   features: [
     {
       icon: "timer",
@@ -77,26 +81,8 @@ export const snugloop: Product = {
   features: [],
 };
 
-export const fovenaProduct: Product = {
-  slug: "fovena",
-  name: "Fovena",
-  tagline: "Task-linked focus sessions and streaks",
-  description:
-    "A productivity app for task-linked focus sessions, streaks, and optional Pro subscriptions. Core features work locally on your device — no accounts, no ads, no cloud sync.",
-  status: "shipped",
-  statusLabel: "Live on Google Play",
-  category: "Productivity",
-  accentColor: "#F4B048",
-  href: "/fovena/privacy",
-  legalLinks: {
-    privacy: "/fovena/privacy",
-    terms: "/fovena/terms",
-  },
-  features: [],
-};
-
 /** Shipped / launching products shown on /products */
-export const catalogProducts: Product[] = [focusChamp, fovenaProduct, snugloop];
+export const catalogProducts: Product[] = [fovena, snugloop];
 
 /** Studio in-development only — LeadPilot. No Velox / Broker Pilot / AI Workspace. */
 export const studioInDev = [

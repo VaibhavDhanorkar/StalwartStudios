@@ -26,11 +26,11 @@ export const metadata: Metadata = {
     template: `%s — ${site.entity}`,
   },
   description:
-    "Stalwart Digital Studios builds high-performance proprietary software. Creators of Focus Champ and more.",
+    "Stalwart Digital Studios builds high-performance proprietary software. Creators of Fovena and more.",
   keywords: [
     "Stalwart Digital Studios",
     "software studio",
-    "Focus Champ",
+    "Fovena",
     "productivity app",
     "indie software",
     "mobile apps",

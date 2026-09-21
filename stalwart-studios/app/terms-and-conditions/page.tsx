@@ -23,7 +23,7 @@ export default function TermsAndConditions() {
         <h2 className="font-fraunces text-xl text-brand-primary mb-3">2. Scope of Services</h2>
         <p className="mb-3">These Terms cover:</p>
         <ul className="list-disc pl-6 space-y-2">
-          <li>Mobile applications published by us (including Focus Champ)</li>
+          <li>Mobile applications published by us (including Fovena)</li>
           <li>Web applications and this website ({site.domain})</li>
           <li>Digital products and related studio engagements we offer</li>
         </ul>

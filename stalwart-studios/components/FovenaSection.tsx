@@ -9,14 +9,14 @@ import { SectionShell } from "./SectionShell";
 import { ProductFrame } from "./ProductFrame";
 import { PlayStoreBadge } from "./PlayStoreBadge";
 import { FeatureIcon } from "./FeatureIcon";
-import { focusChamp } from "@/lib/products";
+import { fovena } from "@/lib/products";
 
 type Props = { tease?: boolean };
 
-export function FocusChampSection({ tease = false }: Props) {
+export function FovenaSection({ tease = false }: Props) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const p = focusChamp;
+  const p = fovena;
 
   return (
     <SectionShell
@@ -26,7 +26,7 @@ export function FocusChampSection({ tease = false }: Props) {
       heading={
         <>
           <span className="text-brand-primary">{p.name}</span>
-          <span className="text-brand-gold"> is coming soon.</span>
+          <span className="text-brand-gold"> — {p.statusLabel.toLowerCase()}.</span>
         </>
       }
       headerClassName="mb-4"
@@ -43,12 +43,12 @@ export function FocusChampSection({ tease = false }: Props) {
               <div className="text-[17px] font-semibold text-brand-primary">{p.name}</div>
               <div className="text-sm font-medium text-brand-teal">{p.tagline}</div>
               <div className="text-xs text-brand-gold-muted mt-1">
-                {p.freemium ? "Freemium" : "App"} · {p.statusLabel} on Google Play
+                {p.freemium ? "Freemium" : "App"} · {p.statusLabel}
               </div>
             </div>
           </div>
 
-          <p className="text-sm text-brand-secondary leading-relaxed mb-6 max-w-xl">{p.description}</p>
+          <p className="text-sm text-brand-secondary leading-relaxed mb-6 max-w-2xl">{p.description}</p>
 
           {!tease && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6 mb-8">
@@ -68,7 +68,7 @@ export function FocusChampSection({ tease = false }: Props) {
             </div>
           )}
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
             <PlayStoreBadge url={p.playStoreUrl} />
             <Link
               href={p.href}
@@ -77,6 +77,22 @@ export function FocusChampSection({ tease = false }: Props) {
               {tease ? "View product" : "Full details"}
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
             </Link>
+            {p.legalLinks ? (
+              <>
+                <Link
+                  href={p.legalLinks.privacy}
+                  className="text-sm font-medium text-brand-gold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-sm"
+                >
+                  Privacy
+                </Link>
+                <Link
+                  href={p.legalLinks.terms}
+                  className="text-sm font-medium text-brand-gold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-sm"
+                >
+                  Terms
+                </Link>
+              </>
+            ) : null}
           </div>
         </div>
 

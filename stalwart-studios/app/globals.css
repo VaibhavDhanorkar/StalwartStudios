@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@config "../tailwind.config.ts";
 
 :root {
   --bg-primary: #0A0A0B;
@@ -150,7 +149,7 @@ body > header {
               radial-gradient(ellipse 40% 40% at 85% 70%, rgba(21,140,125,0.03) 0%, transparent 60%);
 }
 
-/* Focus Champ outer media frame — sharp corners, amber glow, no notch */
+/* Fovena outer media frame — sharp corners, amber glow, no notch */
 .product-frame {
   border-radius: 2px;
   overflow: hidden;

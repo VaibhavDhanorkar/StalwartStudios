@@ -30,7 +30,7 @@ export function ContactSection({ siteSettings }: Props) {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
         >
-            <p className="text-[15px] text-brand-muted leading-relaxed mb-10 max-w-sm">
+            <p className="text-[15px] text-brand-muted leading-relaxed mb-10 max-w-md">
               Whether you have a question, want to collaborate, or just want to say hello — we read every message.
             </p>
             <div className="space-y-4">

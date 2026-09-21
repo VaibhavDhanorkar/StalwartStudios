@@ -51,8 +51,8 @@ export function HeroSection() {
             variants={item}
             className="text-[15px] text-brand-secondary leading-relaxed mb-9 max-w-[640px]"
           >
-            We design and build digital products that are high-performance and customer-centric
-            products that are incredibly powerful and made to create real impact.
+            We design and build digital products that are high-performance and customer-centric,
+            made to create real impact.
           </motion.p>
 
           <motion.div variants={item} className="flex flex-wrap justify-start gap-3">

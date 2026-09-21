@@ -34,7 +34,7 @@ export default function RefundPolicy() {
 
       <section>
         <h2 className="font-fraunces text-xl text-brand-primary mb-3">
-          3. Mobile Apps (Focus Champ & Future Apps on Google Play)
+          3. Mobile Apps (Fovena & Future Apps on Google Play)
         </h2>
         <p>
           In-app purchases and subscriptions made through Google Play are governed by{" "}

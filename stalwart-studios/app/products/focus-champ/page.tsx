@@ -4,15 +4,15 @@ import Link from "next/link";
 import { ProductFrame } from "@/components/ProductFrame";
 import { PlayStoreBadge } from "@/components/PlayStoreBadge";
 import { FeatureIcon } from "@/components/FeatureIcon";
-import { focusChamp } from "@/lib/products";
+import { fovena } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: "Focus Champ",
-  description: focusChamp.description,
+  title: "Fovena",
+  description: fovena.description,
 };
 
-export default function FocusChampPage() {
-  const p = focusChamp;
+export default function FovenaProductPage() {
+  const p = fovena;
 
   return (
     <main className="min-h-screen pt-[68px]">
@@ -46,12 +46,31 @@ export default function FocusChampPage() {
                 </div>
 
                 <p className="text-lg text-brand-teal font-medium mb-3">{p.tagline}</p>
-                <p className="text-brand-secondary leading-relaxed max-w-xl mb-2">{p.description}</p>
-                <p className="text-sm text-brand-gold-muted mb-8">
+                <p className="text-brand-secondary leading-relaxed max-w-2xl mb-2">{p.description}</p>
+                <p className="text-sm text-brand-gold-muted mb-6">
                   Freemium · {p.statusLabel}
                 </p>
 
-                <PlayStoreBadge url={p.playStoreUrl} className="mb-10" />
+                <PlayStoreBadge url={p.playStoreUrl} />
+
+                {p.legalLinks ? (
+                  <div className="flex flex-wrap gap-4 mt-6 mb-10">
+                    <Link
+                      href={p.legalLinks.privacy}
+                      className="text-sm font-medium text-brand-gold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-sm"
+                    >
+                      Privacy Policy
+                    </Link>
+                    <Link
+                      href={p.legalLinks.terms}
+                      className="text-sm font-medium text-brand-gold hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-sm"
+                    >
+                      Terms of Service
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="mb-10" />
+                )}
 
                 <h2 className="font-fraunces text-xl text-brand-primary mb-5 mt-10">Features</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">

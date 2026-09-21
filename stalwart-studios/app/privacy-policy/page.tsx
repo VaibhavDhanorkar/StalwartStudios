@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
         <p>
           {site.entity} (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy.
           This Privacy Policy explains how we collect, use, disclose, and safeguard information when
-          you use our website, mobile apps (including Focus Champ), and related digital products.
+          you use our website, mobile apps (including Fovena), and related digital products.
         </p>
         <p className="mt-3">
           We process personal data in accordance with applicable laws, including India&apos;s Digital
