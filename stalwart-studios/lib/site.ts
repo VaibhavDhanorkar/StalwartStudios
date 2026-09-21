@@ -29,3 +29,13 @@ export const footerLegalLinks = [
   { label: "Refund Policy", href: "/refund-policy" },
   { label: "Contact Us", href: "/contact" },
 ] as const;
+
+export const footerSnugloopLinks = [
+  { label: "Snugloop Privacy", href: "/snugloop/privacy" },
+  { label: "Snugloop Terms", href: "/snugloop/terms" },
+] as const;
+
+export const footerFovenaLinks = [
+  { label: "Fovena Privacy", href: "/fovena/privacy" },
+  { label: "Fovena Terms", href: "/fovena/terms" },
+] as const;

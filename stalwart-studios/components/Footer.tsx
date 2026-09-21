@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
-import { site, navLinks, footerLegalLinks } from "@/lib/site";
+import { site, navLinks, footerLegalLinks, footerSnugloopLinks, footerFovenaLinks } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -40,6 +40,24 @@ export function Footer() {
             </p>
             <div className="flex flex-col gap-3">
               {footerLegalLinks.map((l) => (
+                <Link
+                  key={l.label}
+                  href={l.href}
+                  className="text-sm text-brand-muted hover:text-brand-primary transition-colors duration-200"
+                >
+                  {l.label}
+                </Link>
+              ))}
+              {footerSnugloopLinks.map((l) => (
+                <Link
+                  key={l.label}
+                  href={l.href}
+                  className="text-sm text-brand-muted hover:text-brand-primary transition-colors duration-200"
+                >
+                  {l.label}
+                </Link>
+              ))}
+              {footerFovenaLinks.map((l) => (
                 <Link
                   key={l.label}
                   href={l.href}

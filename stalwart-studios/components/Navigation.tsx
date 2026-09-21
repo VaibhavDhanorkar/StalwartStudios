@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -16,58 +16,13 @@ function isActivePath(pathname: string, href: string) {
 export function Navigation() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  const headerRef = useRef<HTMLElement>(null);
-
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
 
-  useEffect(() => {
-    const header = headerRef.current;
-    if (!header) return;
-
-    const logHeaderState = (trigger: string) => {
-      const styles = window.getComputedStyle(header);
-      const rect = header.getBoundingClientRect();
-      // #region agent log
-      fetch("http://127.0.0.1:7794/ingest/432fa079-c6d8-4190-b4e5-54770ad25225", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "d0bf8e" },
-        body: JSON.stringify({
-          sessionId: "d0bf8e",
-          runId: "nav-debug-pre-fix",
-          hypothesisId: "A",
-          location: "Navigation.tsx:logHeaderState",
-          message: "Header computed layout on scroll/mount",
-          data: {
-            trigger,
-            scrollY: window.scrollY,
-            position: styles.position,
-            top: styles.top,
-            zIndex: styles.zIndex,
-            className: header.className,
-            rectTop: rect.top,
-            rectHeight: rect.height,
-          },
-          timestamp: Date.now(),
-        }),
-      }).catch(() => {});
-      // #endregion
-    };
-
-    logHeaderState("mount");
-
-    const onScroll = () => logHeaderState("scroll");
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <>
-      <header
-        ref={headerRef}
-        className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0B]/80 backdrop-blur-xl border-b border-white/10"
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0B]/80 backdrop-blur-xl border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10 h-[68px] flex items-center justify-between">
           <Logo size="sm" />
 
