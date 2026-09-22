@@ -1,0 +1,10 @@
+{
+  "name": "stalwart-studios-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix stalwart-studios",
+    "build": "npm run build --prefix stalwart-studios",
+    "start": "npm run start --prefix stalwart-studios",
+    "lint": "npm run lint --prefix stalwart-studios"
+  }
+}
