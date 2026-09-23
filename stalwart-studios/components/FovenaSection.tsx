@@ -102,16 +102,18 @@ export function FovenaSection({ tease = false }: Props) {
           transition={{ duration: 0.55, delay: 0.2, ease: "easeOut" }}
           className="hidden lg:flex items-center justify-center self-center"
         >
-          <ProductFrame className="w-[236px]">
-            <Image
-              src={p.screenshotSrc}
-              alt={`${p.name} dashboard`}
-              width={236}
-              height={420}
-              className="w-full h-auto object-cover object-top"
-              priority={tease}
-              sizes="236px"
-            />
+          <ProductFrame className="w-[236px] shrink-0">
+            <div className="h-[420px] w-full">
+              <Image
+                src={p.catalogScreenshotSrc ?? p.screenshotSrc}
+                alt={`${p.name} dashboard`}
+                width={236}
+                height={420}
+                className="h-full w-full object-contain"
+                priority={tease}
+                sizes="236px"
+              />
+            </div>
           </ProductFrame>
         </motion.div>
       </div>

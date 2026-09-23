@@ -102,16 +102,18 @@ export default function ProductsPage() {
                       ) : null}
                     </div>
                   </div>
-                  <ProductFrame className="w-[180px] hidden md:block mx-auto md:mx-0">
-                    <Image
-                      src={p.screenshotSrc}
-                      alt={`${p.name} screenshot`}
-                      width={180}
-                      height={320}
-                      className="w-full h-auto object-cover object-top"
-                      loading="lazy"
-                      sizes="180px"
-                    />
+                  <ProductFrame className="w-[180px] hidden md:block mx-auto md:mx-0 shrink-0">
+                    <div className="h-[320px] w-full">
+                      <Image
+                        src={p.catalogScreenshotSrc ?? p.screenshotSrc}
+                        alt={`${p.name} screenshot`}
+                        width={180}
+                        height={320}
+                        className="h-full w-full object-contain"
+                        loading="lazy"
+                        sizes="180px"
+                      />
+                    </div>
                   </ProductFrame>
                 </div>
               </ProductCardShell>

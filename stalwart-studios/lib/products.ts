@@ -11,6 +11,7 @@ export type Product = {
   accentColor: string;
   iconSrc?: string;
   screenshotSrc?: string;
+  catalogScreenshotSrc?: string;
   altScreenshotSrc?: string;
   features: { icon: string; label: string; description: string }[];
   href: string;
@@ -36,6 +37,7 @@ export const fovena: ProductWithAssets = {
   accentColor: "#F4B048",
   iconSrc: "/focus-champ-icon.png",
   screenshotSrc: "/focus-champ-home.png",
+  catalogScreenshotSrc: "/fovena-mockup.png",
   altScreenshotSrc: "/focus-champ-alt.png",
   freemium: true,
   playStoreUrl: "",
