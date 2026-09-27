@@ -4,15 +4,15 @@ import Link from "next/link";
 import { ProductFrame } from "@/components/ProductFrame";
 import { PlayStoreBadge } from "@/components/PlayStoreBadge";
 import { FeatureIcon } from "@/components/FeatureIcon";
-import { fovena } from "@/lib/products";
+import { snugloop } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: "Fovena",
-  description: fovena.description,
+  title: "Snugloop",
+  description: snugloop.description,
 };
 
-export default function FovenaProductPage() {
-  const p = fovena;
+export default function SnugloopProductPage() {
+  const p = snugloop;
 
   return (
     <main className="min-h-screen pt-[68px]">
@@ -48,7 +48,7 @@ export default function FovenaProductPage() {
                 <p className="text-lg text-brand-teal font-medium mb-3">{p.tagline}</p>
                 <p className="text-brand-secondary leading-relaxed max-w-2xl mb-2">{p.description}</p>
                 <p className="text-sm text-brand-gold-muted mb-6">
-                  Freemium · {p.statusLabel}
+                  App · {p.statusLabel}
                 </p>
 
                 <PlayStoreBadge url={p.playStoreUrl} />
@@ -100,7 +100,7 @@ export default function FovenaProductPage() {
                   <div className="h-[460px] w-full">
                     <Image
                       src={p.catalogScreenshotSrc ?? p.screenshotSrc}
-                      alt={`${p.name} home screen`}
+                      alt={`${p.name} screenshot`}
                       width={260}
                       height={460}
                       className="h-full w-full object-contain"

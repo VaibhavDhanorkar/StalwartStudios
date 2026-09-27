@@ -7,6 +7,7 @@ const staticRoutes = [
   "/contact",
   "/products",
   "/products/focus-champ",
+  "/products/snugloop",
   "/studio",
   "/privacy-policy",
   "/terms-and-conditions",

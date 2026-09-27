@@ -8,7 +8,7 @@ import { catalogProducts } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Products",
-  description: "Shipped and launching products from Stalwart Digital Studios.",
+  description: "Proprietary apps from Stalwart Digital Studios — launching soon on Google Play.",
 };
 
 function ProductCardShell({
@@ -71,7 +71,7 @@ export default function ProductsPage() {
         sectionStyle={{ borderTop: "none" }}
       >
         <p className="text-brand-secondary leading-relaxed mb-10 max-w-2xl">
-          A lean catalog of proprietary products. No filler — only what is launching or{"\u00A0"}live.
+          A lean catalog of proprietary products. No filler — only what we&apos;re building and preparing to launch.
         </p>
 
         <div className="grid gap-8">
@@ -80,11 +80,31 @@ export default function ProductsPage() {
               <ProductCardShell key={p.slug}>
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center">
                   <div>
-                    <div className="flex flex-wrap items-center gap-3 mb-3">
-                      <h2 className="text-2xl font-fraunces font-semibold text-brand-primary">{p.name}</h2>
-                      <ProductStatusBadge label={p.statusLabel} />
+                    <div className="flex items-start gap-4 mb-4">
+                      {p.iconSrc ? (
+                        <div className="w-14 h-14 rounded-2xl overflow-hidden flex-shrink-0 shadow-lg relative">
+                          <Image
+                            src={p.iconSrc}
+                            alt={`${p.name} icon`}
+                            width={56}
+                            height={56}
+                            className="object-cover"
+                          />
+                        </div>
+                      ) : null}
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-3 mb-1">
+                          <h2 className="text-2xl font-fraunces font-semibold text-brand-primary">{p.name}</h2>
+                          <ProductStatusBadge label={p.statusLabel} />
+                        </div>
+                        <p className="text-sm text-brand-teal font-medium">{p.tagline}</p>
+                        {p.iconSrc ? (
+                          <p className="text-xs text-brand-gold-muted mt-1">
+                            {p.freemium ? "Freemium" : "App"} · {p.statusLabel}
+                          </p>
+                        ) : null}
+                      </div>
                     </div>
-                    <p className="text-sm text-brand-teal font-medium mb-2">{p.tagline}</p>
                     <p className="text-sm text-brand-secondary leading-relaxed max-w-2xl mb-4">{p.description}</p>
                     <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                       <Link

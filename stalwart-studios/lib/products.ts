@@ -31,8 +31,8 @@ export const fovena: ProductWithAssets = {
   tagline: "Stay Focused. Achieve More.",
   description:
     "A freemium focus and habit app for people who want deep work without the noise. Smart timers, streaks, and clear progress — with optional ambient sounds for deeper focus. Core features work locally on your device; optional Pro unlocks more on Google Play.",
-  status: "shipped",
-  statusLabel: "Live on Google Play",
+  status: "launching",
+  statusLabel: "Coming soon",
   category: "Productivity",
   accentColor: "#F4B048",
   iconSrc: "/focus-champ-icon.png",
@@ -65,22 +65,45 @@ export const fovena: ProductWithAssets = {
   ],
 };
 
-export const snugloop: Product = {
+export const snugloop: ProductWithAssets = {
   slug: "snugloop",
   name: "Snugloop",
   tagline: "Cozy planarity puzzle game",
   description:
-    "A cozy planarity puzzle game for mixed audiences. Optional ads apply only for players 13+ who have not purchased Remove Ads. Progress is saved locally on your device — no accounts, no cloud save.",
-  status: "shipped",
-  statusLabel: "Live on Google Play",
+    "A cozy planarity puzzle with relaxing logic and a warm craft aesthetic—built for unwinding, not pressure.",
+  status: "launching",
+  statusLabel: "Coming soon",
   category: "Games",
   accentColor: "#158C7D",
-  href: "/snugloop/privacy",
+  iconSrc: "/snugloop-icon.png",
+  screenshotSrc: "/snugloop-mockup.png",
+  catalogScreenshotSrc: "/snugloop-mockup.png",
+  playStoreUrl: "",
+  href: "/products/snugloop",
   legalLinks: {
     privacy: "/snugloop/privacy",
     terms: "/snugloop/terms",
   },
-  features: [],
+  features: [
+    {
+      icon: "puzzle",
+      label: "Fair puzzles, guaranteed",
+      description:
+        "Every layout is solvable before you touch it—no dead ends, no stamina tricks, no layouts that waste your evening. Just trustworthy logic and a campaign that keeps going.",
+    },
+    {
+      icon: "shield",
+      label: "A clean puzzle screen",
+      description:
+        "The board stays yours: no banners or pop-ups while you play. Optional ads stay off the puzzle; remove them entirely whenever you want uninterrupted calm.",
+    },
+    {
+      icon: "threads",
+      label: "Progress you can see and feel",
+      description:
+        "Clear feedback on every move, so you always know you're closer. Clear the board, earn spools, and grow a cozy room—rewards for mood, not pressure.",
+    },
+  ],
 };
 
 /** Shipped / launching products shown on /products */
