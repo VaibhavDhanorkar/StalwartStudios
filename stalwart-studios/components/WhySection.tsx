@@ -103,13 +103,32 @@ const PILLAR_ICONS: Record<string, React.ReactNode> = {
 };
 
 const DEFAULTS: WhySectionData = {
-  sectionLabel: "Why Stalwart Digital Studios",
-  headline: "Built on principles,\nnot just preferences.",
+  sectionLabel: "Our Philosophy",
+  headline: "What we stand for",
   pillars: [
-    { icon: "Performance", title: "Performance First", description: "Fast, reliable and efficient software." },
-    { icon: "User", title: "Human Centered", description: "Thoughtful design and intuitive experiences." },
-    { icon: "Lock", title: "Privacy Focused", description: "Your data and trust are at the core of everything." },
-    { icon: "Code", title: "Indie & Independent", description: "Built in India with passion, curiosity and a long-term vision for impact." },
+    {
+      icon: "Performance",
+      title: "Held to a standard",
+      description:
+        "We ship products that meet our bar: stable engineering, clear UX, full ownership. Consumer apps and enterprise SaaS alike.",
+    },
+    {
+      icon: "User",
+      title: "Shipped with intention",
+      description: "Every feature earns its place. We remove what does not serve the user.",
+    },
+    {
+      icon: "Lock",
+      title: "Global from day one",
+      description:
+        "Our products launch worldwide — same build, same quality, wherever our users are.",
+    },
+    {
+      icon: "Code",
+      title: "Craft in every detail",
+      description:
+        "We compete on execution — in mobile stores and in enterprise workflows.",
+    },
   ],
 };
 

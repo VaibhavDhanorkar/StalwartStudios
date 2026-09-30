@@ -17,7 +17,7 @@ const DEFAULTS: HeroData = {
   stats: [
     { value: "Global", label: "Distribution" },
     { value: "B2C & B2B", label: "Products" },
-    { value: "2024", label: "Est." },
+    { value: "2026", label: "Est." },
   ],
 };
 

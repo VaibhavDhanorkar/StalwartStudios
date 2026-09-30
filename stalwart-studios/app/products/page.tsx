@@ -8,7 +8,8 @@ import { catalogProducts } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Products",
-  description: "Proprietary apps from Stalwart Digital Studios — launching soon on Google Play.",
+  description:
+    "Catalog of consumer apps, enterprise SaaS, and games from Stalwart Digital Studios.",
 };
 
 function ProductCardShell({
@@ -71,7 +72,8 @@ export default function ProductsPage() {
         sectionStyle={{ borderTop: "none" }}
       >
         <p className="text-brand-secondary leading-relaxed mb-10 max-w-2xl">
-          A lean catalog of proprietary products. No filler — only what we&apos;re building and preparing to launch.
+          Consumer apps, enterprise SaaS, and games in our catalog — each owned and shipped by
+          Stalwart.
         </p>
 
         <div className="grid gap-8">

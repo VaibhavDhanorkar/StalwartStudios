@@ -65,7 +65,7 @@ export default defineType({
         },
       ],
       initialValue: [
-        { value: "2024", label: "Founded" },
+        { value: "2026", label: "Founded" },
         { value: "1+", label: "Products" },
         { value: "India", label: "Based in" },
       ],

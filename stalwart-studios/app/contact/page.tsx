@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact Stalwart Digital Studios — merchant identity and support.",
+  description: "Contact Stalwart Digital Studios — support, B2B, and partnerships.",
 };
 
 export default function ContactPage() {
@@ -18,7 +18,8 @@ export default function ContactPage() {
         sectionStyle={{ borderTop: "none" }}
       >
         <p className="text-brand-secondary leading-relaxed mb-10 max-w-md">
-          Product questions, support, or partnerships — we respond from the address below.
+          Product support, enterprise SaaS inquiries, and partnerships — we respond from the address
+          below.
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">

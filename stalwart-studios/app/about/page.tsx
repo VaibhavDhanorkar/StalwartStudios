@@ -3,7 +3,8 @@ import { AboutSection } from "@/components/AboutSection";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "About Stalwart Digital Studios — a precision-focused software studio.",
+  description:
+    "Independent product studio shipping consumer apps, enterprise SaaS, and games worldwide. Founded in India.",
 };
 
 export default function AboutPage() {

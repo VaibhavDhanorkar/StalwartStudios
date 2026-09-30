@@ -22,18 +22,19 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(site.siteUrl),
   title: {
-    default: `${site.entity} — Precision Software Studio`,
+    default: `${site.entity} — Independent Product Studio`,
     template: `%s — ${site.entity}`,
   },
   description:
-    "Stalwart Digital Studios builds high-performance proprietary software. Creators of Fovena and more.",
+    "Independent product studio shipping consumer apps, enterprise SaaS, and games worldwide. Founded in India.",
   keywords: [
     "Stalwart Digital Studios",
-    "software studio",
-    "Fovena",
-    "productivity app",
-    "indie software",
+    "independent product studio",
+    "enterprise SaaS",
     "mobile apps",
+    "B2B software",
+    "Fovena",
+    "Snugloop",
   ],
   authors: [{ name: site.entity }],
   creator: site.entity,
@@ -48,9 +49,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: site.siteUrl,
-    title: `${site.entity} — Precision Software Studio`,
+    title: `${site.entity} — Independent Product Studio`,
     description:
-      "Independent product studio shipping proprietary software with precision.",
+      "Independent product studio shipping consumer apps, enterprise SaaS, and games worldwide. Founded in India.",
     siteName: site.entity,
     images: [
       {
@@ -63,9 +64,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.entity} — Precision Software Studio`,
+    title: `${site.entity} — Independent Product Studio`,
     description:
-      "Independent product studio shipping proprietary software with precision.",
+      "Independent product studio shipping consumer apps, enterprise SaaS, and games worldwide. Founded in India.",
     images: ["/og-image.png"],
   },
   robots: {

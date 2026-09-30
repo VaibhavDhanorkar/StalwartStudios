@@ -6,16 +6,17 @@ import type { AboutSectionData } from "@/lib/sanity.fetch";
 import { SectionShell } from "./SectionShell";
 
 const DEFAULTS: AboutSectionData = {
-  sectionLabel: "About the Studio",
-  headline: "Started with a notebook and a stubborn belief that software could feel better.",
+  sectionLabel: "The Studio",
+  headline: "We ship consumer apps and enterprise SaaS from one studio.",
   storyParagraphs: [
-    "Stalwart Digital Studios began as a simple question: why does so much software feel like it was built for the developer's convenience rather than the person using it every day?",
-    "We're a small, independent studio from India — building tools we genuinely wish existed. Every product we ship starts with a human problem, not a feature list.",
-    "We don't have a venture fund behind us. We have standards. And we think that's a better foundation to build from.",
+    "Stalwart Digital Studios is an independent product company. We build and own consumer mobile apps, enterprise SaaS, and games — and we distribute them globally.",
+    "We are a small team in India with a portfolio that spans B2C and B2B. Same studio, same accountability for what we release.",
   ],
-  mission: "To build software that respects the people who use it — their time, their attention, and their goals.",
-  designPhilosophy: "Every pixel is a promise — we design for the person, not the portfolio.",
-  longTermVision: "A small team, a tight portfolio, and a reputation for shipping things that matter.",
+  mission:
+    "To build and ship owned software — consumer apps, enterprise SaaS, and games — that people and teams choose to use every day.",
+  designPhilosophy: "Do less, better. Every screen and workflow should justify its place.",
+  longTermVision:
+    "A global portfolio of owned products — mobile, enterprise, and games — built in-house by Stalwart.",
 };
 
 const PILLAR_ICONS: Record<string, React.ReactNode> = {

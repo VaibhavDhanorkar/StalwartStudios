@@ -55,7 +55,7 @@ export const fovena: ProductWithAssets = {
     {
       icon: "flame",
       label: "Habit & Streaks",
-      description: "Build consistency that lasts.",
+      description: "Build consistency session by session.",
     },
     {
       icon: "chart",
@@ -116,7 +116,7 @@ export const studioInDev = [
     status: "in-development" as const,
     statusLabel: "In development",
     description:
-      "An internal-grade lead and pipeline tool being engineered for precision workflows. Not publicly available yet.",
+      "An internal-grade lead and pipeline tool being engineered for pipeline and lead workflows. Not publicly available yet.",
   },
 ];
 

@@ -22,7 +22,7 @@ export function ContactSection({ siteSettings }: Props) {
       id="contact"
       sectionRef={ref}
       label="Get in Touch"
-      heading="We'd love to hear from you."
+      heading="Work with us."
       headingClassName="max-w-[680px]"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
@@ -31,7 +31,7 @@ export function ContactSection({ siteSettings }: Props) {
           animate={inView ? { opacity: 1, y: 0 } : {}}
         >
             <p className="text-[15px] text-brand-muted leading-relaxed mb-10 max-w-md">
-              Whether you have a question, want to collaborate, or just want to say hello — we read every message.
+              We take select B2B and partnership conversations when there is a clear fit.
             </p>
             <div className="space-y-4">
               <div>
