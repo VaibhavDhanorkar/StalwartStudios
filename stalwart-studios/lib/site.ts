@@ -13,7 +13,8 @@ export const site = {
   jurisdictionShort: "Amravati, Maharashtra, India",
   playStoreUrl: "",
   copyrightYear: 2026,
-  tagline: "Consumer apps, enterprise SaaS, and games — owned and shipped worldwide.",
+  tagline:
+    "AI-enabled apps, SaaS, and games for businesses and consumers. Built in India, shipped worldwide.",
 } as const;
 
 export const navLinks = [

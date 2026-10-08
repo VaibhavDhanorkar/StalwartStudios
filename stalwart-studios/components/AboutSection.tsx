@@ -10,13 +10,15 @@ const DEFAULTS: AboutSectionData = {
   headline: "We ship consumer apps and enterprise SaaS from one studio.",
   storyParagraphs: [
     "Stalwart Digital Studios is an independent product company. We build and own consumer mobile apps, enterprise SaaS, and games — and we distribute them globally.",
-    "We are a small team in India with a portfolio that spans B2C and B2B. Same studio, same accountability for what we release.",
+    "We're an independent studio from India with a portfolio that spans B2C and B2B. Same studio, same accountability for what we release.",
+    "Self-funded by choice. We build at our own pace, to our own standard — and we answer to the people who use what we ship.",
+    "Today, Stalwart Digital Studios builds AI-enabled products for businesses and consumers — our own apps and games, and software built with partners — designed, engineered, and shipped end to end.",
   ],
   mission:
     "To build and ship owned software — consumer apps, enterprise SaaS, and games — that people and teams choose to use every day.",
   designPhilosophy: "Do less, better. Every screen and workflow should justify its place.",
   longTermVision:
-    "A global portfolio of owned products — mobile, enterprise, and games — built in-house by Stalwart.",
+    "A tight portfolio of our own products, and an AI practice trusted by businesses and consumers alike.",
 };
 
 const PILLAR_ICONS: Record<string, React.ReactNode> = {

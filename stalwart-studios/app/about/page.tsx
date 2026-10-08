@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { AboutSection } from "@/components/AboutSection";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "Independent product studio shipping consumer apps, enterprise SaaS, and games worldwide. Founded in India.",
-};
+export const metadata: Metadata = buildPageMetadata(
+  "About — Stalwart Digital Studios",
+  "An independent, AI-enabled product studio from India building for businesses and consumers.",
+);
 
 export default function AboutPage() {
   return (

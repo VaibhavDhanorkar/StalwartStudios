@@ -7,13 +7,13 @@ import type { HeroData } from "@/lib/sanity.fetch";
 import { HeroGrid } from "./HeroGrid";
 
 const DEFAULTS: HeroData = {
-  eyebrow: "Independent Product Studio · Consumer & enterprise",
+  eyebrow: "Independent Product Studio · AI-enabled",
   headline: "We build software [[worth using]].",
-  taglineWords: ["Consumer and enterprise.", "Owned end to end.", "Shipped worldwide."],
+  taglineWords: ["Apps, SaaS, and games for businesses and the people they serve."],
   body:
-    "Stalwart Digital Studios builds and ships its own products — consumer mobile apps, enterprise SaaS, and games — for a global market.",
+    "Stalwart Digital Studios ships its own products and builds AI-enabled software for businesses and consumers — conversational agents, document workflows, in-app assistants, and personalised experiences, engineered for production from day one.",
   ctaPrimary: "Our Products",
-  ctaSecondary: "Our Story",
+  ctaSecondary: "What we build with AI",
   stats: [
     { value: "Global", label: "Distribution" },
     { value: "B2C & B2B", label: "Products" },
@@ -108,7 +108,7 @@ export function HeroSection({ data }: Props) {
               />
             </Link>
             <Link
-              href="/about"
+              href="/studio#ai"
               className="btn-secondary inline-flex items-center px-6 py-3 text-sm tracking-wide"
             >
               {d.ctaSecondary}

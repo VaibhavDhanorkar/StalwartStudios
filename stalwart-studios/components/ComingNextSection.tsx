@@ -38,6 +38,7 @@ export function ComingNextSection() {
       heading="Ideas taking shape."
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* TODO(owner): confirm whether these cards stay public */}
         {DEFAULTS.map((p, i) => (
           <motion.div
             key={p._id}

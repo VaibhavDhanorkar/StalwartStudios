@@ -5,12 +5,12 @@ import { ArrowRight } from "lucide-react";
 import { ProductFrame } from "@/components/ProductFrame";
 import { SectionShell } from "@/components/SectionShell";
 import { catalogProducts } from "@/lib/products";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: "Products",
-  description:
-    "Catalog of consumer apps, enterprise SaaS, and games from Stalwart Digital Studios.",
-};
+export const metadata: Metadata = buildPageMetadata(
+  "Products — Stalwart Digital Studios",
+  "Apps and games from Stalwart Digital Studios — launching on Google Play.",
+);
 
 function ProductCardShell({
   children,
@@ -72,8 +72,7 @@ export default function ProductsPage() {
         sectionStyle={{ borderTop: "none" }}
       >
         <p className="text-brand-secondary leading-relaxed mb-10 max-w-2xl">
-          Consumer apps, enterprise SaaS, and games in our catalog — each owned and shipped by
-          Stalwart.
+          A focused catalog of products we own, ship, and grow.
         </p>
 
         <div className="grid gap-8">
@@ -151,6 +150,21 @@ export default function ProductsPage() {
               </ProductCardShell>
             ) : null,
           )}
+        </div>
+
+        <div
+          className="mt-12 pt-8 border-t border-brand-subtle flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+        >
+          <p className="text-sm text-brand-secondary leading-relaxed max-w-xl">
+            Building an AI-enabled product? We take on a limited number of partner builds each year.
+          </p>
+          <Link
+            href="/studio#ai"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-brand-gold hover:underline shrink-0"
+          >
+            See the AI practice
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
+          </Link>
         </div>
       </SectionShell>
     </main>

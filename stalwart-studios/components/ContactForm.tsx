@@ -1,11 +1,17 @@
 "use client";
 
 import { useActionState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { submitContact, type ContactState } from "@/app/contact/actions";
+import { CONTACT_TOPICS, contactTopicFromParam } from "@/lib/contact-topics";
 
 const initial: ContactState = { ok: false, message: "" };
 
-export function ContactForm() {
+function ContactFormFields() {
+  const searchParams = useSearchParams();
+  const topicParam = searchParams.get("topic");
+  const defaultTopic = contactTopicFromParam(topicParam);
+
   const [state, action, pending] = useActionState(submitContact, initial);
 
   useEffect(() => {
@@ -42,6 +48,25 @@ export function ContactForm() {
         />
       </div>
       <div>
+        <label htmlFor="topic" className="block text-xs uppercase tracking-[0.14em] text-brand-muted mb-2">
+          Topic
+        </label>
+        <select
+          id="topic"
+          name="topic"
+          required
+          defaultValue={defaultTopic}
+          className="w-full rounded-md border bg-transparent px-4 py-3 text-sm text-brand-primary outline-none focus:border-[var(--accent-gold)] transition-colors duration-200"
+          style={{ borderColor: "var(--border)" }}
+        >
+          {CONTACT_TOPICS.map((t) => (
+            <option key={t} value={t} className="bg-[var(--bg-elevated)]">
+              {t}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
         <label htmlFor="message" className="block text-xs uppercase tracking-[0.14em] text-brand-muted mb-2">
           Message
         </label>
@@ -66,4 +91,8 @@ export function ContactForm() {
       )}
     </form>
   );
+}
+
+export function ContactForm() {
+  return <ContactFormFields />;
 }

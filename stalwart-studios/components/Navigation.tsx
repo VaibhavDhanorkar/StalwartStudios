@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -16,9 +16,7 @@ function isActivePath(pathname: string, href: string) {
 export function Navigation() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <>
@@ -99,6 +97,7 @@ export function Navigation() {
                 >
                   <Link
                     href={l.href}
+                    onClick={closeMenu}
                     className="font-fraunces text-3xl font-light block border-b border-[#2A2A2F] py-5 transition-colors duration-200"
                     style={{
                       color: active ? "var(--accent-gold)" : "var(--text-primary)",
@@ -118,7 +117,11 @@ export function Navigation() {
               transition={{ delay: 0.28 }}
               className="mt-8"
             >
-              <Link href="/contact" className="btn-secondary block text-center py-3 font-medium text-base">
+              <Link
+                href="/contact"
+                onClick={closeMenu}
+                className="btn-secondary block text-center py-3 font-medium text-base"
+              >
                 Get in Touch
               </Link>
             </motion.div>

@@ -79,12 +79,6 @@ export function Footer() {
             >
               {site.supportEmail}
             </a>
-            <a
-              href={`tel:${site.phoneTel}`}
-              className="text-sm text-brand-muted hover:text-brand-primary transition-colors duration-200 block mb-2"
-            >
-              {site.phone}
-            </a>
             <p className="text-xs text-brand-dim leading-relaxed mt-3">{site.address}</p>
           </div>
         </div>

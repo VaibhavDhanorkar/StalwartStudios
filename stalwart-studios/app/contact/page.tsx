@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { ContactForm } from "@/components/ContactForm";
 import { SectionShell } from "@/components/SectionShell";
 import { site } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Contact Stalwart Digital Studios — support, B2B, and partnerships.",
-};
+export const metadata: Metadata = buildPageMetadata(
+  "Contact — Stalwart Digital Studios",
+  "Contact Stalwart Digital Studios — product support, AI-enabled builds, enterprise software, and partnerships.",
+);
 
 export default function ContactPage() {
   return (
@@ -18,8 +20,7 @@ export default function ContactPage() {
         sectionStyle={{ borderTop: "none" }}
       >
         <p className="text-brand-secondary leading-relaxed mb-10 max-w-md">
-          Product support, enterprise SaaS inquiries, and partnerships — we respond from the address
-          below.
+          Product support, AI-enabled builds, enterprise software, and partnerships — reach us here.
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
@@ -65,7 +66,9 @@ export default function ContactPage() {
 
           <div>
             <h2 className="font-fraunces text-xl text-brand-primary mb-6">Send a message</h2>
-            <ContactForm />
+            <Suspense fallback={<p className="text-sm text-brand-muted">Loading form…</p>}>
+              <ContactForm />
+            </Suspense>
           </div>
         </div>
       </SectionShell>

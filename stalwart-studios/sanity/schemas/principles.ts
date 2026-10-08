@@ -10,7 +10,7 @@ export const principlesSchema = defineType({
       name: "sectionHeadline",
       title: "Section Headline",
       type: "string",
-      initialValue: "Built on principles, not just preferences.",
+      initialValue: "Built on principles.",
     }),
     defineField({
       name: "pillars",

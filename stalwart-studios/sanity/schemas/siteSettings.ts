@@ -15,7 +15,8 @@ export default defineType({
       name: "tagline",
       title: "Tagline (meta / SEO)",
       type: "string",
-      initialValue: "Crafting exceptional software for a better digital tomorrow.",
+      initialValue:
+        "AI-enabled apps, SaaS, and games for businesses and consumers. Built in India, shipped worldwide.",
     }),
     defineField({
       name: "siteUrl",

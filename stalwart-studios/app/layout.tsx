@@ -19,17 +19,24 @@ const fraunces = Fraunces({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const rootDescription =
+  "Independent, AI-enabled product studio building apps, SaaS, and games for businesses and consumers. Founded in India.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.siteUrl),
   title: {
-    default: `${site.entity} — Independent Product Studio`,
+    default: "Stalwart Digital Studios — AI-Enabled Product Studio",
     template: `%s — ${site.entity}`,
   },
-  description:
-    "Independent product studio shipping consumer apps, enterprise SaaS, and games worldwide. Founded in India.",
+  description: rootDescription,
   keywords: [
     "Stalwart Digital Studios",
     "independent product studio",
+    "AI-enabled product studio",
+    "conversational AI",
+    "AI agents",
+    "document automation",
+    "AI apps",
     "enterprise SaaS",
     "mobile apps",
     "B2B software",
@@ -49,9 +56,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: site.siteUrl,
-    title: `${site.entity} — Independent Product Studio`,
-    description:
-      "Independent product studio shipping consumer apps, enterprise SaaS, and games worldwide. Founded in India.",
+    title: "Stalwart Digital Studios — AI-Enabled Product Studio",
+    description: rootDescription,
     siteName: site.entity,
     images: [
       {
@@ -64,9 +70,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.entity} — Independent Product Studio`,
-    description:
-      "Independent product studio shipping consumer apps, enterprise SaaS, and games worldwide. Founded in India.",
+    title: "Stalwart Digital Studios — AI-Enabled Product Studio",
+    description: rootDescription,
     images: ["/og-image.png"],
   },
   robots: {
@@ -82,11 +87,32 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.entity,
+  url: site.siteUrl,
+  logo: `${site.siteUrl}/favicon.svg`,
+  email: site.supportEmail,
+  knowsAbout: [
+    "Mobile apps",
+    "SaaS",
+    "Conversational AI",
+    "Document automation",
+    "Personalisation",
+    "Game development",
+  ],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`scroll-smooth ${dmSans.variable} ${fraunces.variable}`}>
       <head>
         <meta name="theme-color" content="#0A0A0B" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
       </head>
       <body className="noise-overlay antialiased">
         <Navigation />

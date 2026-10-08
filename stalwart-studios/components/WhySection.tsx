@@ -104,30 +104,31 @@ const PILLAR_ICONS: Record<string, React.ReactNode> = {
 
 const DEFAULTS: WhySectionData = {
   sectionLabel: "Our Philosophy",
-  headline: "What we stand for",
+  headline: "Built on principles.",
   pillars: [
     {
       icon: "Performance",
-      title: "Held to a standard",
+      title: "Performance First",
       description:
-        "We ship products that meet our bar: stable engineering, clear UX, full ownership. Consumer apps and enterprise SaaS alike.",
+        "Every millisecond is deliberate. We build products that feel fast, reliable, and worthy of your daily trust.",
     },
     {
-      icon: "User",
-      title: "Shipped with intention",
-      description: "Every feature earns its place. We remove what does not serve the user.",
+      icon: "Heart",
+      title: "Human Centered",
+      description:
+        "Technology exists to serve people. We design for the real human on the other side of the screen.",
     },
     {
-      icon: "Lock",
-      title: "Global from day one",
+      icon: "Shield",
+      title: "Privacy Focused",
       description:
-        "Our products launch worldwide — same build, same quality, wherever our users are.",
+        "Your data and trust come first — in our apps and in every product we build with partners.",
     },
     {
-      icon: "Code",
-      title: "Craft in every detail",
+      icon: "Coffee",
+      title: "Independent Studio",
       description:
-        "We compete on execution — in mobile stores and in enterprise workflows.",
+        "No investors dictating roadmaps. A small team building products we would want to use ourselves.",
     },
   ],
 };

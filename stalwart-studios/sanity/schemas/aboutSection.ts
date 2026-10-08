@@ -9,25 +9,25 @@ export default defineType({
       name: "sectionLabel",
       title: "Section Label",
       type: "string",
-      initialValue: "About the Studio",
+      initialValue: "The Studio",
     }),
     defineField({
       name: "headline",
       title: "Headline",
       type: "text",
       rows: 2,
-      initialValue: "Started with a notebook and a stubborn belief that software could feel better.",
+      initialValue: "We ship consumer apps and enterprise SaaS from one studio.",
     }),
     defineField({
       name: "storyParagraphs",
       title: "Story Paragraphs",
       type: "array",
       of: [{ type: "text" }],
-      description: "Each item becomes a paragraph in the story section",
       initialValue: [
-        "Stalwart Studios began as a simple question: why does so much software feel like it was built for the developer's convenience rather than the person using it every day?",
-        "We're a small, independent studio from India — building tools we genuinely wish existed. Every product we ship starts with a human problem, not a feature list. We prototype obsessively, cut ruthlessly, and only ship when something feels truly ready.",
-        "We don't have a venture fund behind us. We have standards. And we think that's a better foundation to build from.",
+        "Stalwart Digital Studios is an independent product company. We build and own consumer mobile apps, enterprise SaaS, and games — and we distribute them globally.",
+        "We're an independent studio from India with a portfolio that spans B2C and B2B. Same studio, same accountability for what we release.",
+        "Self-funded by choice. We build at our own pace, to our own standard — and we answer to the people who use what we ship.",
+        "Today, Stalwart Digital Studios builds AI-enabled products for businesses and consumers — our own apps and games, and software built with partners — designed, engineered, and shipped end to end.",
       ],
     }),
     defineField({
@@ -36,13 +36,13 @@ export default defineType({
       type: "text",
       rows: 3,
       initialValue:
-        "To build software that respects the people who use it — their time, their attention, and their goals. We exist to make the daily experience of digital tools genuinely better.",
+        "To build and ship owned software — consumer apps, enterprise SaaS, and games — that people and teams choose to use every day.",
     }),
     defineField({
       name: "designPhilosophy",
       title: "Design Philosophy (one-liner)",
       type: "string",
-      initialValue: "Every pixel is a promise — we design for the person, not the portfolio.",
+      initialValue: "Do less, better. Every screen and workflow should justify its place.",
     }),
     defineField({
       name: "longTermVision",
@@ -50,7 +50,7 @@ export default defineType({
       type: "text",
       rows: 3,
       initialValue:
-        "We want to become a studio that people trust the way they trust their favourite tools — quietly, deeply, and over many years. A small team, a tight portfolio, and a reputation for shipping things that matter.",
+        "A tight portfolio of our own products, and an AI practice trusted by businesses and consumers alike.",
     }),
   ],
   preview: {
