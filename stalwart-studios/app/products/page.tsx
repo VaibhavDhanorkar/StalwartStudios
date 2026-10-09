@@ -156,13 +156,13 @@ export default function ProductsPage() {
           className="mt-12 pt-8 border-t border-brand-subtle flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
         >
           <p className="text-sm text-brand-secondary leading-relaxed max-w-xl">
-            Building an AI-enabled product? We take on a limited number of partner builds each year.
+            Building something of your own? We take on a limited number of partner builds each year.
           </p>
           <Link
-            href="/studio#ai"
+            href="/services"
             className="group inline-flex items-center gap-2 text-sm font-medium text-brand-gold hover:underline shrink-0"
           >
-            See the AI practice
+            See our services
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
           </Link>
         </div>

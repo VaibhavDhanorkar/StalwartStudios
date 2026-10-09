@@ -108,7 +108,7 @@ export function HeroSection({ data }: Props) {
               />
             </Link>
             <Link
-              href="/studio#ai"
+              href="/services/ai-enabled-products"
               className="btn-secondary inline-flex items-center px-6 py-3 text-sm tracking-wide"
             >
               {d.ctaSecondary}

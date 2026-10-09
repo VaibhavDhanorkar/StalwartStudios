@@ -28,18 +28,3 @@ export const aiBuildPrinciples = [
     description: "We set a cost and response-time budget per task and design to it.",
   },
 ] as const;
-
-export const aiEngagementSteps = [
-  {
-    title: "Discovery",
-    description: "We map the users, the workflow, the data, and where the time goes.",
-  },
-  {
-    title: "Scoped prototype",
-    description: "One workflow, real data, measured against the agreed test set.",
-  },
-  {
-    title: "Production build",
-    description: "Integrations, monitoring, launch, and a clean handover.",
-  },
-] as const;

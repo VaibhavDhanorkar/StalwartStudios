@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
+import { serviceSlugs } from "@/lib/content/services";
 
 const staticRoutes = [
   "",
@@ -8,6 +9,8 @@ const staticRoutes = [
   "/products",
   "/products/focus-champ",
   "/products/snugloop",
+  "/services",
+  ...serviceSlugs.map((slug) => `/services/${slug}`),
   "/studio",
   "/privacy-policy",
   "/terms-and-conditions",
@@ -16,7 +19,7 @@ const staticRoutes = [
   "/snugloop/terms",
   "/fovena/privacy",
   "/fovena/terms",
-] as const;
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return staticRoutes.map((path) => ({

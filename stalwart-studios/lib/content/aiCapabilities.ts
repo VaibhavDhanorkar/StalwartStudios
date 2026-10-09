@@ -22,8 +22,8 @@ export const aiCapabilities: AiCapability[] = [
       "Answers come from your approved pricing and policy. Low-confidence conversations go straight to a person.",
   },
   {
-    id: "document-workflows",
-    title: "Document workflows",
+    id: "document-processing",
+    title: "Document processing",
     audience: "B2B",
     oneLiner: "Turn PDFs, forms, and invoices into structured data your systems use immediately.",
     example:

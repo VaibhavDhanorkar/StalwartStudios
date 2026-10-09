@@ -20,6 +20,7 @@ export const site = {
 
 export const navLinks = [
   { label: "Products", href: "/products" },
+  { label: "Services", href: "/services" },
   { label: "Studio", href: "/studio" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },

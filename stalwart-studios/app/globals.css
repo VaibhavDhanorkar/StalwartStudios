@@ -297,6 +297,125 @@ body > header {
 
 .text-brand-gold-muted { color: var(--accent-gold-muted); }
 
+/* Translucent glass surface — menus and floating CTA cards */
+.glass-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--bg-surface) 72%, transparent);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-deep), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+}
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(244, 176, 72, 0.7), transparent);
+  pointer-events: none;
+}
+.glass-panel::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -40%;
+  right: -20%;
+  width: 70%;
+  height: 120%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-gold) 10%, transparent), transparent);
+  pointer-events: none;
+}
+
+/* Icon chip used in menu tiles, cards and service heroes */
+.service-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  color: var(--accent-gold);
+  border: 1px solid color-mix(in srgb, var(--accent-gold) 22%, transparent);
+  background: color-mix(in srgb, var(--accent-gold) 7%, transparent);
+  transition: box-shadow 200ms ease, border-color 200ms ease, background-color 200ms ease;
+}
+.group:hover .service-icon,
+.group:focus-visible .service-icon {
+  border-color: color-mix(in srgb, var(--accent-gold) 45%, transparent);
+  background: color-mix(in srgb, var(--accent-gold) 12%, transparent);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--accent-gold) 28%, transparent);
+}
+
+/* Interactive service card */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background:
+    radial-gradient(120% 80% at 100% 0%, color-mix(in srgb, var(--accent-gold) 4%, transparent), transparent 60%),
+    var(--bg-elevated);
+  transition: border-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+}
+.service-card:hover,
+.service-card:focus-within {
+  border-color: color-mix(in srgb, var(--accent-gold) 30%, transparent);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+.service-card:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .service-card:hover { transform: translateY(-2px); }
+}
+
+/* Large outlined numeral */
+.outline-numeral {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 600;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--accent-gold) 28%, transparent);
+  user-select: none;
+}
+
+/* Item chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+/* Process connector: hairline behind step cards, visible only in the gaps */
+.process-connector {
+  background-image: linear-gradient(90deg, transparent, var(--border) 15%, var(--border) 85%, transparent);
+  background-repeat: no-repeat;
+  background-size: 100% 0;
+}
+@media (min-width: 1024px) {
+  .process-connector--compact { background-size: 100% 1px; background-position: 0 50%; }
+}
+@media (min-width: 1280px) {
+  .process-connector--full { background-size: 100% 1px; background-position: 0 38px; }
+}
+
+/* Shared hairline divider that fades at both ends */
+.fade-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border) 15%, var(--border) 85%, transparent);
+}
+
 /* Solid amber CTAs — original studio language */
 .btn-primary {
   display: inline-flex;
@@ -317,6 +436,11 @@ body > header {
 .btn-primary:active {
   background: var(--accent-gold-dim);
   box-shadow: 0 0 12px color-mix(in srgb, var(--accent-gold) 22%, transparent);
+}
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
 }
 
 .btn-secondary {

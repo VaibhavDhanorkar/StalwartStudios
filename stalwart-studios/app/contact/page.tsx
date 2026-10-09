@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { Commitments } from "@/components/Commitments";
 import { ContactForm } from "@/components/ContactForm";
 import { SectionShell } from "@/components/SectionShell";
 import { site } from "@/lib/site";
@@ -7,7 +8,7 @@ import { buildPageMetadata } from "@/lib/page-metadata";
 
 export const metadata: Metadata = buildPageMetadata(
   "Contact — Stalwart Digital Studios",
-  "Contact Stalwart Digital Studios — product support, AI-enabled builds, enterprise software, and partnerships.",
+  "Contact Stalwart Digital Studios — product support, new builds, and partnerships.",
 );
 
 export default function ContactPage() {
@@ -20,7 +21,7 @@ export default function ContactPage() {
         sectionStyle={{ borderTop: "none" }}
       >
         <p className="text-brand-secondary leading-relaxed mb-10 max-w-md">
-          Product support, AI-enabled builds, enterprise software, and partnerships — reach us here.
+          Product support, new builds, and partnerships — reach us here.
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
@@ -53,7 +54,8 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <h2 className="font-fraunces text-xl text-brand-primary mb-6">Send a message</h2>
+            <h2 className="font-fraunces text-xl text-brand-primary mb-4">Send a message</h2>
+            <Commitments className="mb-6" />
             <Suspense fallback={<p className="text-sm text-brand-muted">Loading form…</p>}>
               <ContactForm />
             </Suspense>
