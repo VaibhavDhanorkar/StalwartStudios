@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LegalPage } from "@/components/LegalPage";
-import { site } from "@/lib/site";
+import { productLegalLinks, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -93,8 +94,8 @@ export default function PrivacyPolicy() {
           Contact our Data Protection / Grievance Officer at{" "}
           <a href={`mailto:${site.supportEmail}`} className="text-brand-gold">
             {site.supportEmail}
-          </a>{" "}
-          or {site.phone}.
+          </a>
+          .
         </p>
       </section>
 
@@ -117,19 +118,31 @@ export default function PrivacyPolicy() {
             <strong className="text-brand-primary">Udyam:</strong> {site.udyam}
           </li>
           <li>
-            <strong className="text-brand-primary">Address:</strong> {site.address}
-          </li>
-          <li>
             <strong className="text-brand-primary">Email:</strong> {site.supportEmail}
-          </li>
-          <li>
-            <strong className="text-brand-primary">Phone:</strong> {site.phone}
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 className="font-fraunces text-xl text-brand-primary mb-3">8. Changes</h2>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">
+          8. Product-specific privacy policies
+        </h2>
+        <p className="mb-3">
+          Individual apps may collect and use data differently. For app-specific details, see:
+        </p>
+        <ul className="list-none space-y-2">
+          {productLegalLinks.privacy.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href} className="text-brand-gold hover:underline">
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">9. Changes</h2>
         <p>
           We may update this Privacy Policy from time to time. The &quot;Last updated&quot; date at
           the top reflects the latest revision. Continued use of our services after changes

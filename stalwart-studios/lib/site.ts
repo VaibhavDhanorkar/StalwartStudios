@@ -5,6 +5,7 @@ export const site = {
   siteUrl: "https://stalwartstudios.in",
   udyam: "UDYAM-MH-03-0146825",
   supportEmail: "support@stalwartstudios.in",
+  /** Kept for refund policy, store listings, and easy revert — see ROADMAP.md */
   phone: "+91 9623677013",
   phoneTel: "+919623677013",
   address:
@@ -31,12 +32,14 @@ export const footerLegalLinks = [
   { label: "Contact Us", href: "/contact" },
 ] as const;
 
-export const footerSnugloopLinks = [
-  { label: "Snugloop Privacy", href: "/snugloop/privacy" },
-  { label: "Snugloop Terms", href: "/snugloop/terms" },
-] as const;
-
-export const footerFovenaLinks = [
-  { label: "Fovena Privacy", href: "/fovena/privacy" },
-  { label: "Fovena Terms", href: "/fovena/terms" },
-] as const;
+/** Product legal pages — company privacy/terms and product catalog, not footer */
+export const productLegalLinks = {
+  privacy: [
+    { label: "Fovena Privacy Policy", href: "/fovena/privacy" },
+    { label: "Snugloop Privacy Policy", href: "/snugloop/privacy" },
+  ],
+  terms: [
+    { label: "Fovena Terms of Service", href: "/fovena/terms" },
+    { label: "Snugloop Terms of Service", href: "/snugloop/terms" },
+  ],
+} as const;

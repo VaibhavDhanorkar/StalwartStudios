@@ -6,12 +6,12 @@ import type { AboutSectionData } from "@/lib/sanity.fetch";
 import { SectionShell } from "./SectionShell";
 
 const DEFAULTS: AboutSectionData = {
-  sectionLabel: "The Studio",
+  sectionLabel: "About",
   headline: "We ship consumer apps and enterprise SaaS from one studio.",
   storyParagraphs: [
     "Stalwart Digital Studios is an independent product company. We build and own consumer mobile apps, enterprise SaaS, and games — and we distribute them globally.",
     "We're an independent studio from India with a portfolio that spans B2C and B2B. Same studio, same accountability for what we release.",
-    "Self-funded by choice. We build at our own pace, to our own standard — and we answer to the people who use what we ship.",
+    "We build for people who use our software every day—steady updates, clear support, and products that improve from real feedback.",
     "Today, Stalwart Digital Studios builds AI-enabled products for businesses and consumers — our own apps and games, and software built with partners — designed, engineered, and shipped end to end.",
   ],
   mission:

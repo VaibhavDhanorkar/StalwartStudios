@@ -35,7 +35,7 @@ export default function ContactPage() {
               <p>
                 <span className="text-brand-muted">Entity</span>
                 <br />
-                <span className="text-brand-primary">{site.legalName}</span>
+                <span className="text-brand-primary">{site.entity}</span>
               </p>
               <p>
                 <span className="text-brand-muted">Udyam Registration</span>
@@ -48,18 +48,6 @@ export default function ContactPage() {
                 <a href={`mailto:${site.supportEmail}`} className="text-brand-gold">
                   {site.supportEmail}
                 </a>
-              </p>
-              <p>
-                <span className="text-brand-muted">Phone</span>
-                <br />
-                <a href={`tel:${site.phoneTel}`} className="text-brand-primary">
-                  {site.phone}
-                </a>
-              </p>
-              <p>
-                <span className="text-brand-muted">Address</span>
-                <br />
-                <span className="text-brand-primary leading-relaxed">{site.address}</span>
               </p>
             </div>
           </div>

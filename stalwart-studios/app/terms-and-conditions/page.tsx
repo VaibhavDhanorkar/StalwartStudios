@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LegalPage } from "@/components/LegalPage";
-import { site } from "@/lib/site";
+import { productLegalLinks, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
@@ -89,14 +90,24 @@ export default function TermsAndConditions() {
             <strong className="text-brand-primary">Udyam:</strong> {site.udyam}
           </li>
           <li>
-            <strong className="text-brand-primary">Address:</strong> {site.address}
-          </li>
-          <li>
             <strong className="text-brand-primary">Email:</strong> {site.supportEmail}
           </li>
-          <li>
-            <strong className="text-brand-primary">Phone:</strong> {site.phone}
-          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="font-fraunces text-xl text-brand-primary mb-3">9. Product-specific terms</h2>
+        <p className="mb-3">
+          Use of individual apps is also governed by product-specific terms. See:
+        </p>
+        <ul className="list-none space-y-2">
+          {productLegalLinks.terms.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href} className="text-brand-gold hover:underline">
+                {link.label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </section>
     </LegalPage>
