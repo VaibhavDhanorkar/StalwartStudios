@@ -1,11 +1,7 @@
 "use server";
 
 import { site } from "@/lib/site";
-import {
-  BUDGET_OPTIONS,
-  CONTACT_TOPICS,
-  TIMELINE_OPTIONS,
-} from "@/lib/contact-topics";
+import { CONTACT_TOPICS, TIMELINE_OPTIONS } from "@/lib/contact-topics";
 
 export type ContactState = {
   ok: boolean;
@@ -18,7 +14,6 @@ export type ContactSubmission = {
   email: string;
   company: string;
   topic: (typeof CONTACT_TOPICS)[number];
-  budget: (typeof BUDGET_OPTIONS)[number] | "";
   timeline: (typeof TIMELINE_OPTIONS)[number] | "";
   message: string;
 };
@@ -39,7 +34,6 @@ export async function submitContact(
   const email = field(formData, "email");
   const company = field(formData, "company");
   const topic = field(formData, "topic");
-  const budget = field(formData, "budget");
   const timeline = field(formData, "timeline");
   const message = field(formData, "message");
 
@@ -48,9 +42,6 @@ export async function submitContact(
   }
   if (!isOneOf(topic, CONTACT_TOPICS)) {
     return { ok: false, message: "Please choose what we can help with." };
-  }
-  if (budget && !isOneOf(budget, BUDGET_OPTIONS)) {
-    return { ok: false, message: "Please choose a valid budget." };
   }
   if (timeline && !isOneOf(timeline, TIMELINE_OPTIONS)) {
     return { ok: false, message: "Please choose a valid timeline." };
@@ -61,7 +52,6 @@ export async function submitContact(
     email,
     company,
     topic,
-    budget: budget as ContactSubmission["budget"],
     timeline: timeline as ContactSubmission["timeline"],
     message,
   };
@@ -71,7 +61,6 @@ export async function submitContact(
     `Email: ${submission.email}`,
     `Company: ${submission.company || "—"}`,
     `What can we help with: ${submission.topic}`,
-    `Estimated budget: ${submission.budget || "—"}`,
     `Timeline: ${submission.timeline || "—"}`,
     "",
     submission.message,

@@ -80,7 +80,7 @@ export function Logo({ size = "md", className = "", asLink = true }: LogoProps) 
       </span>
       <span className={`flex flex-col ${cfg.gap}`}>
         <span
-          className={`font-sans font-semibold tracking-[0.18em] uppercase ${cfg.wordSize} text-brand-primary transition-colors duration-200 group-hover:text-brand-gold leading-none`}
+          className={`font-montserrat font-bold tracking-[0.25em] uppercase ${cfg.wordSize} text-brand-primary transition-colors duration-200 group-hover:text-brand-gold leading-none`}
         >
           STALWART
         </span>
@@ -92,7 +92,7 @@ export function Logo({ size = "md", className = "", asLink = true }: LogoProps) 
           }}
         />
         <span
-          className={`font-sans font-light tracking-[0.22em] uppercase ${cfg.subSize} text-brand-primary/80 transition-colors duration-200 group-hover:text-brand-primary leading-none`}
+          className={`font-montserrat font-medium tracking-[0.25em] uppercase ${cfg.subSize} text-brand-primary/80 transition-colors duration-200 group-hover:text-brand-primary leading-none`}
         >
           DIGITAL STUDIOS
         </span>

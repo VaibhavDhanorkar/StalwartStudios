@@ -74,12 +74,6 @@ export function Navigation() {
             })}
           </div>
 
-          <div className="hidden md:flex">
-            <Link href="/contact" className="btn-secondary text-sm font-medium px-5 py-2 tracking-wide">
-              Get in Touch
-            </Link>
-          </div>
-
           <button
             className="md:hidden text-brand-secondary hover:text-brand-primary transition-colors duration-200"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -199,20 +193,6 @@ export function Navigation() {
                 </motion.div>
               );
             })}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.32 }}
-              className="mt-8"
-            >
-              <Link
-                href="/contact"
-                onClick={closeMenu}
-                className="btn-secondary block text-center py-3 font-medium text-base"
-              >
-                Get in Touch
-              </Link>
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

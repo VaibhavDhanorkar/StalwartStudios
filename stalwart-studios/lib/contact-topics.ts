@@ -27,14 +27,6 @@ export function contactTopicFromParam(value: string | null | undefined): Contact
   return TOPIC_BY_PARAM[value] ?? DEFAULT_CONTACT_TOPIC;
 }
 
-export const BUDGET_OPTIONS = [
-  "Under ₹5L",
-  "₹5L – ₹15L",
-  "₹15L – ₹50L",
-  "₹50L+",
-  "Not sure yet",
-] as const;
-
 export const TIMELINE_OPTIONS = [
   "As soon as possible",
   "1–3 months",

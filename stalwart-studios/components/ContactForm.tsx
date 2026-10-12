@@ -3,12 +3,7 @@
 import { useActionState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { submitContact, type ContactState } from "@/app/contact/actions";
-import {
-  BUDGET_OPTIONS,
-  CONTACT_TOPICS,
-  TIMELINE_OPTIONS,
-  contactTopicFromParam,
-} from "@/lib/contact-topics";
+import { CONTACT_TOPICS, TIMELINE_OPTIONS, contactTopicFromParam } from "@/lib/contact-topics";
 
 const initial: ContactState = { ok: false, message: "" };
 
@@ -70,37 +65,20 @@ export function ContactForm() {
           ))}
         </select>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="budget" className={labelClass}>
-            Estimated budget <span className="normal-case tracking-normal text-brand-dim">(optional)</span>
-          </label>
-          <select id="budget" name="budget" defaultValue="" className={fieldClass} style={fieldStyle}>
-            <option value="" className={optionClass}>
-              Select
+      <div>
+        <label htmlFor="timeline" className={labelClass}>
+          Timeline <span className="normal-case tracking-normal text-brand-dim">(optional)</span>
+        </label>
+        <select id="timeline" name="timeline" defaultValue="" className={fieldClass} style={fieldStyle}>
+          <option value="" className={optionClass}>
+            Select
+          </option>
+          {TIMELINE_OPTIONS.map((t) => (
+            <option key={t} value={t} className={optionClass}>
+              {t}
             </option>
-            {BUDGET_OPTIONS.map((b) => (
-              <option key={b} value={b} className={optionClass}>
-                {b}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="timeline" className={labelClass}>
-            Timeline <span className="normal-case tracking-normal text-brand-dim">(optional)</span>
-          </label>
-          <select id="timeline" name="timeline" defaultValue="" className={fieldClass} style={fieldStyle}>
-            <option value="" className={optionClass}>
-              Select
-            </option>
-            {TIMELINE_OPTIONS.map((t) => (
-              <option key={t} value={t} className={optionClass}>
-                {t}
-              </option>
-            ))}
-          </select>
-        </div>
+          ))}
+        </select>
       </div>
       <div>
         <label htmlFor="message" className={labelClass}>

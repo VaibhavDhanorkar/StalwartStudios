@@ -21,7 +21,7 @@ export default function StudioPage() {
         sectionClassName="pt-16 md:pt-20"
         sectionStyle={{ borderTop: "none" }}
       >
-        <div className="space-y-5 text-brand-secondary leading-relaxed mb-10 max-w-3xl">
+        <div className="space-y-5 text-[15px] text-brand-secondary leading-relaxed mb-10 max-w-3xl">
           <p>
             Stalwart Digital Studios is an independent, AI-enabled product studio. We design, build,
             and ship our own products, and we build AI-enabled software for businesses and consumers

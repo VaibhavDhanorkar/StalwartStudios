@@ -24,12 +24,12 @@ export default function ServicesPage() {
             </span>
           </div>
           <h1
-            className="font-fraunces font-semibold text-brand-primary leading-[1.02] tracking-tight mb-6"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
+            className="font-fraunces font-semibold text-brand-primary leading-[1.1] mb-6"
+            style={{ fontSize: "clamp(1.7rem, 3vw, 2.5rem)" }}
           >
             What we build.
           </h1>
-          <p className="text-[16px] md:text-[17px] text-brand-secondary leading-relaxed max-w-2xl mb-10">
+          <p className="text-[15px] text-brand-secondary leading-relaxed max-w-2xl mb-10">
             AI-enabled products, mobile apps, platforms, business systems, and design — for businesses
             and consumers, built end to end.
           </p>

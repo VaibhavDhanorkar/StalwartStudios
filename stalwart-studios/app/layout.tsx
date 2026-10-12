@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Fraunces } from "next/font/google";
+import { DM_Sans, Fraunces, Montserrat } from "next/font/google";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { site } from "@/lib/site";
@@ -17,6 +17,13 @@ const fraunces = Fraunces({
   variable: "--font-fraunces",
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+  weight: ["500", "700"],
 });
 
 const rootDescription =
@@ -109,7 +116,7 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`scroll-smooth ${dmSans.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`scroll-smooth ${dmSans.variable} ${fraunces.variable} ${montserrat.variable}`}>
       <head>
         <meta name="theme-color" content="#0A0A0B" />
         <script
