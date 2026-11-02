@@ -6,7 +6,7 @@ import { services } from "@/lib/content/services";
 export function Footer() {
   return (
     <footer style={{ background: "var(--bg-primary)", borderTop: "1px solid var(--border-subtle)" }}>
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+      <div className="site-shell">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 py-14 border-b border-brand-subtle">
           <div className="col-span-2 md:col-span-1">
             <Logo size="sm" className="mb-4" />

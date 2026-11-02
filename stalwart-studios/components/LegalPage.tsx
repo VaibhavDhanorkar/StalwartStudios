@@ -21,7 +21,7 @@ export function LegalPage({
 }: Props) {
   return (
     <main className="min-h-screen pt-[68px] bg-brand-primary">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-16">
+      <div className="site-shell py-16">
         <article className="max-w-3xl">
           <header className="mb-12">
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand-gold mb-3">

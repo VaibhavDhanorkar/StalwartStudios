@@ -10,7 +10,7 @@ export function StudioSignal() {
       className="relative py-14"
       style={{ background: "var(--bg-primary)", borderTop: "1px solid var(--border-subtle)" }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+      <div className="site-shell">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
           <div>
             <div className="flex items-center gap-3 mb-3">

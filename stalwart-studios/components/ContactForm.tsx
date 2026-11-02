@@ -13,7 +13,7 @@ const labelClass = "block text-xs uppercase tracking-[0.14em] text-brand-muted m
 const fieldStyle = { borderColor: "var(--border)" };
 const optionClass = "bg-[var(--bg-elevated)]";
 
-export function ContactForm() {
+export function ContactForm({ initialMessage = "" }: { initialMessage?: string }) {
   const searchParams = useSearchParams();
   const defaultTopic = contactTopicFromParam(searchParams.get("topic"));
 
@@ -89,6 +89,8 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
+          key={initialMessage}
+          defaultValue={initialMessage}
           className={`${fieldClass} resize-y`}
           style={fieldStyle}
         />

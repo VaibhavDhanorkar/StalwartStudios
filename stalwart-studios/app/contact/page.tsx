@@ -13,7 +13,15 @@ export const metadata: Metadata = buildPageMetadata(
   "Contact Stalwart Digital Studios — product support, new builds, and partnerships.",
 );
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  // Prefilled by the homepage prompt (works with plain GET, no JavaScript needed).
+  const raw = (await searchParams).message;
+  const initialMessage = (Array.isArray(raw) ? raw[0] : raw)?.slice(0, 500) ?? "";
+
   return (
     <main className="min-h-screen pt-[68px]">
       <SectionShell
@@ -45,7 +53,7 @@ export default function ContactPage() {
             <h2 className="font-fraunces text-xl text-brand-primary mb-4">Send a message</h2>
             <Commitments className="mb-6" />
             <Suspense fallback={<p className="text-sm text-brand-muted">Loading form…</p>}>
-              <ContactForm />
+              <ContactForm initialMessage={initialMessage} />
             </Suspense>
           </div>
         </div>

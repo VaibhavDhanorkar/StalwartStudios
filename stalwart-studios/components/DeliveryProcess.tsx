@@ -26,7 +26,7 @@ export function DeliveryProcess({ note, id = "process", variant = "full" }: Prop
         className="scroll-mt-[88px]"
         style={{ background: "var(--bg-primary)" }}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="site-shell">
           <div className="fade-rule" />
           <div className="py-12 md:py-14">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">

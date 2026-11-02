@@ -40,7 +40,7 @@ export function SectionShell({
       className={joinClasses("relative py-14", sectionClassName)}
       style={{ background: "var(--bg-primary)", borderTop: "1px solid var(--border-subtle)", ...sectionStyle }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+      <div className="site-shell">
         <div
           className={joinClasses("section-card rounded-2xl px-6 md:px-10 py-6 md:py-8", cardClassName)}
           style={cardStyle}

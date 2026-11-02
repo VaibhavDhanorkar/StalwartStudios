@@ -31,7 +31,7 @@ export function Navigation() {
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10">
         {/* Blur lives on a background layer: a backdrop-filter on <header> itself would stop the services panel from blurring the page behind it. */}
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[#0A0A0B]/80 backdrop-blur-xl" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10 h-[68px] flex items-center justify-between">
+        <div className="site-shell h-[68px] flex items-center justify-between">
           <Logo size="sm" />
 
           <div className="hidden md:flex items-center gap-8">

@@ -15,7 +15,7 @@ export function ContactCta({ heading, line, href = "/contact", children }: Props
       className="relative py-14"
       style={{ background: "var(--bg-primary)", borderTop: "1px solid var(--border-subtle)" }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+      <div className="site-shell">
         <div className="section-card rounded-2xl px-6 md:px-10 py-8 md:py-10">
           {heading ? (
             <h2

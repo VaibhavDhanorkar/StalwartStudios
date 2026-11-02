@@ -20,7 +20,7 @@ export function StudioAiPracticeSection() {
         className="relative py-14 scroll-mt-[88px]"
         style={{ background: "var(--bg-primary)", borderTop: "1px solid var(--border-subtle)" }}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="site-shell">
           <div className="section-card rounded-2xl px-6 md:px-10 py-6 md:py-8">
             <div className="mb-8">
               <div className="flex items-center gap-3 mb-3">
@@ -80,7 +80,7 @@ export function StudioAiPracticeSection() {
         className="relative pb-14"
         style={{ background: "var(--bg-primary)" }}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="site-shell">
           <Link
             href="/contact?topic=ai-enabled-products"
             className="btn-primary inline-flex items-center gap-2 px-6 py-3 text-sm"
