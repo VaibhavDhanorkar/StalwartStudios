@@ -13,7 +13,7 @@ import { HeroPrompt } from "./HeroPrompt";
 const DEFAULTS: HeroData = {
   eyebrow: "Independent Product Studio · AI-enabled",
   headline: "We engineer [[what’s next.]]",
-  taglineWords: ["We engineer intelligent digital products and AI-driven solutions for businesses shaping what’s next."],
+  taglineWords: ["Intelligent digital products and AI-driven solutions for businesses shaping what’s next."],
   body:
     "Stalwart Digital Studios ships its own products and builds AI-enabled software for businesses and consumers — conversational agents, document workflows, in-app assistants, and personalised experiences, engineered for production from day one.",
   ctaPrimary: "Our Products",
@@ -67,7 +67,7 @@ export function HeroSection({ data }: Props) {
       <HeroBackground />
 
       <motion.div className="site-shell w-full py-14 md:py-20 relative z-10" style={{ opacity: contentOpacity }}>
-        <div className="flex flex-col items-start text-left max-w-[720px]">
+        <div className="flex w-full flex-col items-center text-center">
           <motion.div {...rise(0, reduce)} className="hero-eyebrow-pill mb-5">
             <AnimatedShinyText className="text-[11px] font-medium tracking-[0.16em] uppercase">
               {d.eyebrow}
@@ -78,24 +78,17 @@ export function HeroSection({ data }: Props) {
             as="h1"
             duration={0.45}
             segments={headlineSegments(d.headline)}
-            className="font-fraunces font-semibold leading-[1.08] tracking-tight text-brand-primary mb-5 text-[clamp(2.35rem,4.8vw,4.05rem)]"
+            className="font-fraunces font-semibold leading-[1.08] tracking-tight text-brand-primary mb-5 text-center text-[clamp(2.35rem,4.8vw,4.05rem)]"
           />
 
           <motion.p
             {...rise(0.15, reduce)}
-            className="text-[15px] text-brand-teal font-semibold mb-3 leading-relaxed max-w-[640px]"
+            className="text-[15px] text-brand-primary font-normal mb-8 leading-relaxed lg:whitespace-nowrap"
           >
             {taglineLine}
           </motion.p>
 
-          <motion.p
-            {...rise(0.25, reduce)}
-            className="text-[15px] text-brand-primary leading-relaxed mb-9 max-w-[640px]"
-          >
-            {d.body}
-          </motion.p>
-
-          <motion.div {...rise(0.35, reduce)} className="flex flex-wrap justify-start gap-3 mb-7">
+          <motion.div {...rise(0.28, reduce)} className="flex flex-wrap justify-center gap-3 mb-7">
             <Link
               href="/products"
               className="btn-primary group relative inline-flex items-center gap-2 px-6 py-3 text-sm tracking-wide"
@@ -115,18 +108,18 @@ export function HeroSection({ data }: Props) {
             </Link>
           </motion.div>
 
-          <motion.div {...rise(0.45, reduce)} className="w-full mb-10">
+          <motion.div {...rise(0.38, reduce)} className="mb-10 w-full max-w-[640px]">
             <HeroPrompt />
           </motion.div>
 
           <motion.div
-            {...rise(0.55, reduce)}
-            className="hero-stats flex flex-wrap items-center w-full max-w-xl"
+            {...rise(0.48, reduce)}
+            className="hero-stats flex flex-wrap items-center justify-center"
           >
             {d.stats.map((stat) => (
               <div key={stat.label} className="hero-stat">
-                <p className="text-[13px] font-medium text-brand-primary">{stat.value}</p>
-                <p className="text-[10px] uppercase tracking-[0.16em] text-brand-muted mt-0.5">{stat.label}</p>
+                <p className="text-[15px] font-medium text-brand-primary">{stat.value}</p>
+                <p className="text-[15px] uppercase tracking-[0.08em] text-brand-muted mt-0.5">{stat.label}</p>
               </div>
             ))}
           </motion.div>

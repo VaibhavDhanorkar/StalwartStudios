@@ -13,9 +13,10 @@ export default function Home() {
       <HomeServicesSection />
       <FovenaSection tease />
       <StudioSignal />
-      <DeliveryProcess />
+      <DeliveryProcess scrollMotion />
       <Faq />
       <ContactCta
+        scrollMotion
         heading="Have something to build?"
         line="Tell us about it. We reply within one business day."
       />

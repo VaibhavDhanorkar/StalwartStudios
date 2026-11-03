@@ -30,7 +30,7 @@ const item: Variants = {
   hidden: { opacity: 0.35, filter: "blur(6px)", y: 10 },
   show: {
     opacity: 1,
-    filter: "blur(0px)",
+    filter: "none",
     y: 0,
     transition: { duration: 0.32, ease: "easeOut" },
   },
@@ -53,7 +53,7 @@ export function TextAnimate({ segments, className, delay = 0, duration = 0.3, as
   return (
     <Component
       variants={container}
-      initial={reduce ? false : "hidden"}
+      initial={reduce ? "show" : "hidden"}
       animate="show"
       className={cn("hero-text-animate", className)}
     >

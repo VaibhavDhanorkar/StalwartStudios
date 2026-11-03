@@ -71,7 +71,7 @@ export function HeroPrompt() {
         </button>
         {focused && !reduce && <BorderBeam size={90} duration={5} borderWidth={1} />}
       </div>
-      <p className="mt-2 pl-1 text-[12px] text-brand-dim">{LABEL}</p>
+      <p className="mt-2 text-center text-[12px] text-brand-dim">{LABEL}</p>
     </form>
   );
 }

@@ -1,30 +1,9 @@
 import type { Metadata } from "next";
-import { DM_Sans, Fraunces, Montserrat } from "next/font/google";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { site } from "@/lib/site";
+import { dmSans, fraunces, montserrat } from "./fonts";
 import "./globals.css";
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-dm-sans",
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-fraunces",
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-  display: "swap",
-  weight: ["500", "700"],
-});
 
 const rootDescription =
   "Independent, AI-enabled product studio building apps, SaaS, and games for businesses and consumers. Founded in India.";
@@ -116,7 +95,12 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`scroll-smooth ${dmSans.variable} ${fraunces.variable} ${montserrat.variable}`}>
+    <html
+      lang="en"
+      className={`scroll-smooth ${dmSans.variable} ${fraunces.variable} ${montserrat.variable}`}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <head>
         <meta name="theme-color" content="#0A0A0B" />
         <script
@@ -124,7 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
-      <body className="noise-overlay antialiased">
+      <body className="noise-overlay antialiased" suppressHydrationWarning>
         <Navigation />
         {children}
         <Footer />

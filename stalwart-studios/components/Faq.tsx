@@ -1,7 +1,7 @@
 "use client";
 
-import { useId, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useId, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { SectionShell } from "./SectionShell";
 import { faqGroups } from "@/lib/content/faq";
@@ -18,13 +18,38 @@ const faqJsonLd = {
   ),
 };
 
+function FaqHeading({
+  index,
+  progress,
+  reduce,
+  children,
+}: {
+  index: number;
+  progress: MotionValue<number>;
+  reduce: boolean | null;
+  children: string;
+}) {
+  const start = Math.min(index * 0.22, 0.55);
+  const opacity = useTransform(progress, [start, Math.min(start + 0.4, 1)], reduce ? [1, 1] : [0.2, 1]);
+  return (
+    <motion.h3 style={{ opacity }} className="text-[11px] font-medium uppercase tracking-[0.16em] text-brand-teal mb-3">
+      {children}
+    </motion.h3>
+  );
+}
+
 export function Faq() {
   const baseId = useId();
   const reduceMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 0.9", "start 0.45"],
+  });
   const [openKey, setOpenKey] = useState<string | null>(null);
 
   return (
-    <SectionShell id="faq" label="FAQ" heading="Questions, answered.">
+    <SectionShell id="faq" sectionRef={sectionRef} label="FAQ" heading="Questions, answered.">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
@@ -32,9 +57,9 @@ export function Faq() {
       <div className="space-y-8 max-w-3xl">
         {faqGroups.map((group, gi) => (
           <div key={group.heading}>
-            <h3 className="text-[11px] font-medium uppercase tracking-[0.16em] text-brand-teal mb-3">
+            <FaqHeading index={gi} progress={scrollYProgress} reduce={reduceMotion}>
               {group.heading}
-            </h3>
+            </FaqHeading>
             <div className="divide-y divide-[var(--border-subtle)] border-y border-brand-subtle">
               {group.items.map((item, ii) => {
                 const key = `${gi}-${ii}`;

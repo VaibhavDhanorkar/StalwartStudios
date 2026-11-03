@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { SectionShell } from "./SectionShell";
@@ -16,6 +16,16 @@ type Props = { tease?: boolean };
 export function FovenaSection({ tease = false }: Props) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.88", "center 0.55"],
+  });
+  const settled = !tease || !!reduce;
+  const copyY = useTransform(scrollYProgress, [0, 0.7], settled ? [0, 0] : [16, 0]);
+  const copyOpacity = useTransform(scrollYProgress, [0, 0.7], settled ? [1, 1] : [0.5, 1]);
+  const frameY = useTransform(scrollYProgress, [0.12, 1], settled ? [0, 0] : [56, 0]);
+  const frameScale = useTransform(scrollYProgress, [0.12, 1], settled ? [1, 1] : [0.92, 1]);
   const p = fovena;
 
   return (
@@ -34,7 +44,7 @@ export function FovenaSection({ tease = false }: Props) {
       cardClassName="overflow-hidden"
     >
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:items-center">
-        <div className="px-0 md:px-2 py-2">
+        <motion.div className="px-0 md:px-2 py-2" style={tease ? { y: copyY, opacity: copyOpacity } : undefined}>
           <div className="flex items-center gap-4 mb-5">
             <div className="w-14 h-14 rounded-2xl overflow-hidden flex-shrink-0 shadow-lg relative">
               <Image src={p.iconSrc} alt={`${p.name} icon`} width={56} height={56} className="object-cover" />
@@ -94,12 +104,13 @@ export function FovenaSection({ tease = false }: Props) {
               </>
             ) : null}
           </div>
-        </div>
+        </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55, delay: 0.2, ease: "easeOut" }}
+          initial={tease ? false : { opacity: 0, y: 16 }}
+          animate={tease ? undefined : inView ? { opacity: 1, y: 0 } : {}}
+          transition={tease ? undefined : { duration: 0.55, delay: 0.2, ease: "easeOut" }}
+          style={tease ? { y: frameY, scale: frameScale } : undefined}
           className="hidden lg:flex items-center justify-center self-center"
         >
           <ProductFrame className="w-[236px] shrink-0">

@@ -1,4 +1,8 @@
+"use client";
+
+import { useRef, type ReactNode } from "react";
 import Link from "next/link";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Commitments } from "./Commitments";
 
@@ -6,17 +10,31 @@ type Props = {
   heading?: string;
   line?: string;
   href?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
+  scrollMotion?: boolean;
 };
 
-export function ContactCta({ heading, line, href = "/contact", children }: Props) {
+export function ContactCta({ heading, line, href = "/contact", children, scrollMotion = false }: Props) {
+  const ref = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.92", "start 0.55"],
+  });
+  const still = !scrollMotion || !!reduce;
+  const scale = useTransform(scrollYProgress, [0, 1], still ? [1, 1] : [0.97, 1]);
+
   return (
     <section
+      ref={ref}
       className="relative py-14"
       style={{ background: "var(--bg-primary)", borderTop: "1px solid var(--border-subtle)" }}
     >
       <div className="site-shell">
-        <div className="section-card rounded-2xl px-6 md:px-10 py-8 md:py-10">
+        <motion.div
+          className="section-card rounded-2xl px-6 md:px-10 py-8 md:py-10"
+          style={{ scale, transformOrigin: "center center" }}
+        >
           {heading ? (
             <h2
               className="font-fraunces font-semibold text-brand-primary leading-[1.1] mb-3"
@@ -35,7 +53,7 @@ export function ContactCta({ heading, line, href = "/contact", children }: Props
           </Link>
           <Commitments className="mt-6" />
           {children}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

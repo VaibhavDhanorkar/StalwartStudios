@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
@@ -21,16 +21,30 @@ export function Navigation() {
   const reduceMotion = useReducedMotion();
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const closeMenu = () => {
     setMenuOpen(false);
     setMobileServicesOpen(false);
   };
+  const clearBar = pathname === "/" && !scrolled;
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10">
         {/* Blur lives on a background layer: a backdrop-filter on <header> itself would stop the services panel from blurring the page behind it. */}
-        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[#0A0A0B]/80 backdrop-blur-xl" />
+        <div
+          aria-hidden="true"
+          className={`absolute inset-0 -z-10 transition-[background-color,backdrop-filter] duration-300 ${
+            clearBar ? "bg-[#0A0A0B]/60 backdrop-blur-md" : "bg-[#0A0A0B]/80 backdrop-blur-xl"
+          }`}
+        />
         <div className="site-shell h-[68px] flex items-center justify-between">
           <Logo size="sm" />
 

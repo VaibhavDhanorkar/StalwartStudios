@@ -1,9 +1,11 @@
 "use client";
 
+import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { motion, useInView, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import { useNarrowViewport } from "@/lib/useNarrowViewport";
 import { SectionShell } from "./SectionShell";
 import { deliverySteps } from "@/lib/content/process";
 
@@ -11,12 +13,53 @@ type Props = {
   note?: string;
   id?: string;
   variant?: "full" | "compact";
+  scrollMotion?: boolean;
 };
 
-export function DeliveryProcess({ note, id = "process", variant = "full" }: Props) {
+function ArrivingStep({
+  index,
+  total,
+  progress,
+  narrow,
+  reduce,
+  className,
+  style,
+  children,
+}: {
+  index: number;
+  total: number;
+  progress: MotionValue<number>;
+  narrow: boolean;
+  reduce: boolean | null;
+  className?: string;
+  style?: CSSProperties;
+  children: ReactNode;
+}) {
+  const span = 0.5;
+  const start = total <= 1 ? 0 : (index / (total - 1)) * (1 - span);
+  const end = start + span;
+  const still = !!reduce;
+  const x = useTransform(progress, [start, end], still || narrow ? [0, 0] : [-32 - index * 4, 0]);
+  const y = useTransform(progress, [start, end], still || !narrow ? [0, 0] : [20, 0]);
+  const opacity = useTransform(progress, [start, end], still ? [1, 1] : [0.4, 1]);
+
+  return (
+    <motion.li className={className} style={{ ...style, x, y, opacity }}>
+      {children}
+    </motion.li>
+  );
+}
+
+export function DeliveryProcess({ note, id = "process", variant = "full", scrollMotion = false }: Props) {
   const ref = useRef<HTMLElement | null>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const reduceMotion = useReducedMotion();
+  const narrow = useNarrowViewport();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.9", "start 0.38"],
+  });
+  const travel = scrollMotion && variant === "full";
 
   if (variant === "compact") {
     return (
@@ -86,18 +129,12 @@ export function DeliveryProcess({ note, id = "process", variant = "full" }: Prop
       label="How we deliver"
       heading="From first conversation to launch — and beyond."
       headingClassName="max-w-[720px]"
-      sectionClassName="scroll-mt-[68px]"
+      sectionClassName={travel ? "scroll-mt-[68px] overflow-x-hidden" : "scroll-mt-[68px]"}
     >
       <ol className="process-connector process-connector--full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-        {deliverySteps.map((step, i) => (
-          <motion.li
-            key={step.title}
-            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-            animate={inView || reduceMotion ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.45, delay: reduceMotion ? 0 : i * 0.06, ease: "easeOut" }}
-            className="relative rounded-xl border p-5 h-full"
-            style={{ borderColor: "var(--border-subtle)", background: "var(--bg-elevated)" }}
-          >
+        {deliverySteps.map((step, i) => {
+          const stepBody = (
+            <>
             <span
               className="inline-flex items-center justify-center w-9 h-9 rounded-full text-[12px] font-semibold text-brand-gold tabular-nums mb-4"
               style={{
@@ -119,8 +156,41 @@ export function DeliveryProcess({ note, id = "process", variant = "full" }: Prop
                 </li>
               ))}
             </ul>
-          </motion.li>
-        ))}
+            </>
+          );
+          const stepClass = "relative rounded-xl border p-5 h-full";
+          const stepStyle = { borderColor: "var(--border-subtle)", background: "var(--bg-elevated)" };
+
+          if (travel) {
+            return (
+              <ArrivingStep
+                key={step.title}
+                index={i}
+                total={deliverySteps.length}
+                progress={scrollYProgress}
+                narrow={narrow}
+                reduce={reduceMotion}
+                className={stepClass}
+                style={stepStyle}
+              >
+                {stepBody}
+              </ArrivingStep>
+            );
+          }
+
+          return (
+            <motion.li
+              key={step.title}
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={inView || reduceMotion ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.45, delay: reduceMotion ? 0 : i * 0.06, ease: "easeOut" }}
+              className={stepClass}
+              style={stepStyle}
+            >
+              {stepBody}
+            </motion.li>
+          );
+        })}
       </ol>
       {note ? (
         <p className="text-[13px] text-brand-muted leading-relaxed mt-6 max-w-3xl">{note}</p>

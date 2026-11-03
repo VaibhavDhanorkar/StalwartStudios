@@ -5,7 +5,7 @@ import { ServicesGrid } from "./ServicesGrid";
 
 export function HomeServicesSection() {
   return (
-    <SectionShell id="services" label="Services" heading="What we build.">
+    <SectionShell id="services" label="Services" heading="What we build." sectionClassName="overflow-hidden">
       <p className="text-[15px] text-brand-secondary leading-relaxed max-w-3xl mb-8">
         AI-enabled products, mobile apps, platforms, business systems, and design — for businesses
         and consumers.

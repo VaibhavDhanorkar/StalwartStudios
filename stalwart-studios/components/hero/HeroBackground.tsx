@@ -67,7 +67,7 @@ export function HeroBackground() {
   const frozen = !!reduce || mobile || !visible || !tabVisible;
 
   return (
-    <div ref={rootRef} aria-hidden="true" className="absolute inset-0 -z-0 overflow-hidden">
+    <div ref={rootRef} aria-hidden="true" className="hero-bg-grain absolute inset-0 -z-0 overflow-hidden">
       {/* Static fallback: same palette as the shader, paints with the HTML. */}
       <div className="absolute inset-0 hero-bg-static" />
 
