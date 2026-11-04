@@ -34,7 +34,7 @@ export function HeroPrompt() {
   const showTyping = enhanced && !reduce && value === "";
 
   return (
-    <form action="/contact" method="get" className="hero-prompt w-full max-w-[640px]" role="search" aria-label={LABEL}>
+    <form action="/contact" method="get" className="hero-prompt w-full" role="search" aria-label={LABEL}>
       <label htmlFor="hero-prompt-input" className="sr-only">
         {LABEL}
       </label>

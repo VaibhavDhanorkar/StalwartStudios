@@ -16,7 +16,8 @@ function supportsWebGL2() {
 
 /**
  * Full-bleed, decorative hero background. A static CSS gradient paints with the page; the shader (or
- * light rays) mounts only after first paint, freezes on mobile / reduced motion / off-screen / hidden tab.
+ * light rays) mounts only after first paint, and freezes on reduced motion / off-screen / hidden tab.
+ * Narrow viewports keep moving, drawn sharper in ShaderLayer.
  */
 export function HeroBackground() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -48,6 +49,14 @@ export function HeroBackground() {
   }, []);
 
   useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    const onChange = () => setMobile(media.matches);
+    onChange();
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
     const el = rootRef.current;
     if (!el) return;
     const io = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0 });
@@ -64,7 +73,7 @@ export function HeroBackground() {
   const { scrollY } = useScroll();
   const dim = useTransform(scrollY, [0, 520], [0, 0.6]);
 
-  const frozen = !!reduce || mobile || !visible || !tabVisible;
+  const frozen = !!reduce || !visible || !tabVisible;
 
   return (
     <div ref={rootRef} aria-hidden="true" className="hero-bg-grain absolute inset-0 -z-0 overflow-hidden">
@@ -73,7 +82,7 @@ export function HeroBackground() {
 
       {mounted && webgl && (
         <div className="absolute inset-0 hero-bg-fade-in">
-          <ShaderLayer speed={frozen ? 0 : 1} />
+          <ShaderLayer speed={frozen ? 0 : 1} mobile={mobile} />
         </div>
       )}
 

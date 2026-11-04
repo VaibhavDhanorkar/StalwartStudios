@@ -6,8 +6,8 @@ import { MeshGradient } from "@paper-design/shaders-react";
 // Mostly near-black, deep teal regions, a small warm-gold presence (tokens: #0A0A0B, #158C7D, #F4B048).
 const COLORS = ["#0A0A0B", "#0E2E2A", "#0B2F2B", "#158C7D", "#0A0A0B", "#6B4A1E"];
 
-export default function ShaderLayer({ speed }: { speed: number }) {
-  const maxPixelCount = speed === 0 ? 1920 * 1080 : 1280 * 720;
+export default function ShaderLayer({ speed, mobile = false }: { speed: number; mobile?: boolean }) {
+  const maxPixelCount = mobile ? 1080 * 1920 : speed === 0 ? 1920 * 1080 : 1280 * 720;
 
   return (
     <MeshGradient
@@ -18,7 +18,7 @@ export default function ShaderLayer({ speed }: { speed: number }) {
       grainMixer={0}
       grainOverlay={0}
       speed={speed * 0.25}
-      minPixelRatio={1}
+      minPixelRatio={mobile ? 2 : 1}
       maxPixelCount={maxPixelCount}
     />
   );

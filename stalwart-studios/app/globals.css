@@ -485,9 +485,9 @@ body > header {
 
 /* ───────── Hero (AI-era) ───────── */
 
-/* Shared header + hero content width; backgrounds stay full-bleed. 1280→1120, 1440→1280, 1600→1440, 1920→1560. */
+/* Shared header + hero content width; backgrounds stay full-bleed. 1280→1178, 1440→1325, 1920→1792, 2560→1920. */
 .site-shell {
-  width: min(1560px, calc(100% - clamp(3rem, 12.5vw, 10rem)));
+  width: min(1920px, calc(100% - clamp(3rem, 8vw, 8rem)));
   margin-inline: auto;
 }
 
@@ -590,6 +590,11 @@ body > header {
 .hero-stats { gap: 0; }
 .hero-stat { padding-inline: 20px; border-left: 1px solid rgba(237, 232, 224, 0.12); }
 .hero-stat:first-child { border-left: 0; }
+
+@media (max-width: 767px) {
+  .hero-stats { gap: 12px 8px; }
+  .hero-stat { border-left: 0; padding-inline: 10px; text-align: center; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .shiny-text { animation: none; }
